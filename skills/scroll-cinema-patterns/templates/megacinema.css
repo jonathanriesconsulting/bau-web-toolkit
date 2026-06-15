@@ -1,0 +1,241 @@
+/* =========================================================================
+   Scroll-Cinema — full-viewport sticky stage with overlay text + callouts
+   Validated CSS from PKB V11 Ablauf. N phases × 100vh scroll length.
+   ========================================================================= */
+
+/* Container — scroll length = N × 100vh */
+.cinema {
+	position: relative;
+	height: calc(var(--cinema-phases, 9) * 100vh);
+	background: #000;
+}
+
+/* Sticky stage — fills viewport */
+.cinema__stage {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	overflow: hidden;
+	background: #000;
+}
+
+/* Image stack — all phases stacked, only one active */
+.cinema__images {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+.cinema__images img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	transform: scale(1.04);
+	transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+	            transform 6000ms linear;
+}
+.cinema__images img.is-active {
+	opacity: 1;
+	transform: scale(1); /* slow Ken-Burns zoom */
+}
+
+/* Vignette for text legibility */
+.cinema__veil {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	pointer-events: none;
+	background:
+		linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 28%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.72) 100%),
+		radial-gradient(ellipse 100% 70% at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+}
+
+/* Top chips */
+.cinema__head {
+	position: absolute;
+	top: clamp(1.25rem, 3vh, 2.25rem);
+	left: clamp(1.5rem, 4vw, 3rem);
+	right: clamp(1.5rem, 4vw, 3rem);
+	z-index: 4;
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	pointer-events: none;
+}
+.cinema__chip {
+	padding: 0.4rem 0.8rem;
+	background: rgba(0, 0, 0, 0.45);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	border-radius: 999px;
+	color: rgba(255, 255, 255, 0.92);
+	font-family: var(--font-mono, monospace);
+	font-size: 0.72rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+.cinema__chip--soft { color: rgba(255, 255, 255, 0.55); }
+
+/* Master overlay stack */
+.cinema__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+	pointer-events: none;
+}
+
+.master {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 600ms cubic-bezier(0.16,1,0.3,1), visibility 0ms 600ms;
+}
+.master.is-active {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 600ms cubic-bezier(0.16,1,0.3,1), visibility 0ms 0ms;
+}
+
+.master__center {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 0.8rem;
+	padding: clamp(2rem, 6vh, 5rem) clamp(1.5rem, 4vw, 4rem);
+	color: #fff;
+	transform: translateY(20px);
+	transition: transform 700ms cubic-bezier(0.16,1,0.3,1);
+}
+.master.is-active .master__center { transform: translateY(0); }
+
+.master__num {
+	font-family: var(--font-mono, monospace);
+	font-size: 0.78rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.65);
+	margin: 0;
+}
+.master__title {
+	font-size: clamp(3rem, 11vw, 9rem);
+	font-weight: 500;
+	letter-spacing: -0.045em;
+	line-height: 0.92;
+	margin: 0.85rem 0 0.4rem;
+	color: #fff;
+	text-shadow: 0 6px 60px rgba(0, 0, 0, 0.5);
+}
+.master__subtitle {
+	font-size: clamp(1.1rem, 1.9vw, 1.65rem);
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	margin: 0 0 1rem;
+	color: rgba(255, 255, 255, 0.88);
+	max-width: 30ch;
+}
+.master__desc {
+	font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+	line-height: 1.55;
+	color: rgba(255, 255, 255, 0.78);
+	max-width: 52ch;
+	margin: 0;
+}
+
+/* Floating callouts — staggered reveal */
+.callout {
+	position: absolute;
+	z-index: 5;
+	padding: 0.5rem 0.85rem;
+	border-radius: 999px;
+	font-family: var(--font-mono, monospace);
+	font-size: 0.74rem;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.95);
+	background: rgba(0, 0, 0, 0.55);
+	backdrop-filter: blur(12px) saturate(150%);
+	-webkit-backdrop-filter: blur(12px) saturate(150%);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	white-space: nowrap;
+	opacity: 0;
+	transform: translateY(12px) scale(0.96);
+	transition: opacity 500ms cubic-bezier(0.16,1,0.3,1) var(--callout-delay, 0ms),
+	            transform 600ms cubic-bezier(0.16,1,0.3,1) var(--callout-delay, 0ms);
+}
+.master.is-active .callout {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+/* Callout positions — Tic-Tac-Toe corners */
+.callout--tl { top: clamp(10vh, 18vh, 22vh); left:  clamp(1.5rem, 6vw, 5rem); }
+.callout--tr { top: clamp(10vh, 16vh, 20vh); right: clamp(1.5rem, 6vw, 5rem); }
+.callout--bl { bottom: clamp(14vh, 20vh, 24vh); left:  clamp(1.5rem, 8vw, 7rem); }
+.callout--br { bottom: clamp(14vh, 22vh, 26vh); right: clamp(1.5rem, 8vw, 7rem); }
+
+@media (max-width: 720px) {
+	.callout { font-size: 0.66rem; padding: 0.4rem 0.65rem; }
+	.callout--tl { top: 10vh; left: 1rem; }
+	.callout--tr { top: 10vh; right: 1rem; }
+	.callout--bl { bottom: 16vh; left: 1rem; }
+	.callout--br { bottom: 16vh; right: 1rem; }
+}
+
+/* Bottom progress */
+.cinema__foot {
+	position: absolute;
+	left: clamp(1.5rem, 4vw, 3rem);
+	right: clamp(1.5rem, 4vw, 3rem);
+	bottom: clamp(1.5rem, 3vh, 2.5rem);
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+.cinema__progress {
+	flex: 1;
+	display: flex;
+	gap: 0.45rem;
+	min-width: 200px;
+}
+.cinema__progress .step {
+	flex: 1;
+	height: 3px;
+	background: rgba(255, 255, 255, 0.18);
+	border-radius: 999px;
+	position: relative;
+	overflow: hidden;
+	border: 0;
+	padding: 0;
+	cursor: pointer;
+	transition: background 200ms;
+}
+.cinema__progress .step.is-passed { background: rgba(255, 255, 255, 0.85); }
+.cinema__progress .step.is-active::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: #fff;
+	transform: scaleX(var(--p, 0));
+	transform-origin: left;
+	transition: transform 80ms linear;
+}
+
+/* Reduced motion — kill all transforms */
+@media (prefers-reduced-motion: reduce) {
+	.cinema__images img,
+	.cinema__images img.is-active { transform: none !important; }
+	.callout, .master.is-active .callout { transform: none !important; }
+	.master__center, .master.is-active .master__center { transform: none !important; }
+}

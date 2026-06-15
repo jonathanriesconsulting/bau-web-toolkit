@@ -1,0 +1,10 @@
+# Schwere Binär-Assets bleiben draußen (Bilder, Frame-Sequenzen, Logos)
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.mp4
+*.zip
+.DS_Store
+node_modules/

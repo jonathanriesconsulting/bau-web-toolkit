@@ -1,0 +1,263 @@
+<?php
+/**
+ * Leistungen — Ablauf-Slideshow (mit Bauphasen-Cinema) + 4 Großbau-Schwerpunkte.
+ * Großbau-Positionierung. KEINE Gratis-Versprechen.
+ */
+$theme_uri = get_template_directory_uri();
+
+$process_steps = [
+	[
+		'num'   => '01',
+		'label' => 'Anfrage & Machbarkeit',
+		'image' => $theme_uri . '/assets/images/step-01-beratung.jpg',
+		'alt'   => 'Bauleiter prüft Pläne und Leistungsverzeichnis am Projektstandort.',
+		'desc'  => 'Sie übermitteln Objektart, Standort und Eckdaten. Wir prüfen die Machbarkeit und übermitteln eine erste Einschätzung.',
+	],
+	[
+		'num'   => '02',
+		'label' => 'Planung & Festpreis',
+		'image' => $theme_uri . '/assets/images/step-02-planung.jpg',
+		'alt'   => 'Ausführungsplanung mit Bauplänen und Leistungsverzeichnis.',
+		'desc'  => 'Ausführungsplanung, Gewerke-Koordination und verbindlicher Festpreis nach Leistungsverzeichnis — vollständig kalkuliert vor Baubeginn.',
+	],
+	[
+		'num'        => '03',
+		'label'      => 'Ausführung',
+		'image'      => $theme_uri . '/assets/images/step-03-umsetzung.jpg',
+		'alt'        => 'Mehrgeschossiger Rohbau mit Kran auf der Großbaustelle.',
+		'desc'       => 'Eigene Bauleitung, Gewerke-Koordination und Qualitätskontrolle über alle Bauphasen — ein Ansprechpartner mit Direktdurchwahl.',
+		'type'       => 'bauphasen',
+		'frameCount' => 70,
+		'framesUrl'  => $theme_uri . '/assets/bauphasen',
+		'framePoster'=> $theme_uri . '/assets/bauphasen/frame_001.jpg',
+	],
+	[
+		'num'   => '04',
+		'label' => 'Abnahme & Übergabe',
+		'image' => $theme_uri . '/assets/images/step-04-uebergabe.jpg',
+		'alt'   => 'Schlüsselübergabe vor einem fertiggestellten Mehrfamilienhaus.',
+		'desc'  => 'Gemeinsame Abnahme, vollständige Dokumentation und schlüsselfertige Übergabe — termingerecht und bezugsfertig.',
+	],
+];
+$total_steps = count( $process_steps );
+
+$services = [
+	[
+		'num'    => '01',
+		'title'  => 'Mehrfamilien- & Wohnungsbau',
+		'image'  => $theme_uri . '/assets/images/service-mfh.jpg',
+		'alt'    => 'Mehrgeschossiges Mehrfamilienhaus im Rohbau mit Turmdrehkran.',
+		'lead'   => 'Schlüsselfertige Mehrfamilienhäuser und Wohnanlagen als Generalunternehmer — vom Erdaushub bis zur bezugsfertigen Einheit.',
+		'points' => [
+			'Mehrfamilienhäuser & Mehrgeschosser in Massiv- und Stahlbetonbauweise',
+			'Wohnquartiere mit mehreren Baukörpern',
+			'KfW-Effizienzhaus 40 und 55 nach Vorgabe',
+			'Für Bauträger, Investoren und private Bauherren',
+		],
+		'tag'    => null,
+	],
+	[
+		'num'    => '02',
+		'title'  => 'Gewerbe- & Hochbau',
+		'image'  => $theme_uri . '/assets/images/service-efh.jpg',
+		'alt'    => 'Gewerbebau im Stahlbeton-Rohbau mit Fassadengerüst.',
+		'lead'   => 'Gewerbe- und Funktionsbauten von der Bodenplatte bis zur Schlüsselübergabe — mit klaren Termin- und Kostenvorgaben.',
+		'points' => [
+			'Büro-, Hallen- und Mischnutzungsbauten',
+			'Stahlbeton-, Mauerwerks- und Hybridkonstruktionen',
+			'Koordination aller Fach- und Ausbaugewerke',
+		],
+		'tag'    => null,
+	],
+	[
+		'num'    => '03',
+		'title'  => 'Schlüsselfertigbau als GU',
+		'image'  => $theme_uri . '/assets/images/step-04-uebergabe.jpg',
+		'alt'    => 'Fertiggestelltes Wohngebäude bei der schlüsselfertigen Übergabe.',
+		'lead'   => 'Ein Vertrag für das gesamte Bauvorhaben — Ausschreibung, Vergabe, Bauleitung und Abnahme aus einer Hand.',
+		'points' => [
+			'Verbindlicher Festpreis nach Leistungsverzeichnis',
+			'Eigene Bauleitung mit Direktdurchwahl',
+			'Terminplan mit dokumentiertem Bauablauf je Gewerk',
+		],
+		'tag'    => null,
+	],
+	[
+		'num'    => '04',
+		'title'  => 'Sanierung & Bestand',
+		'image'  => $theme_uri . '/assets/images/service-sanierung.jpg',
+		'alt'    => 'Energetische Sanierung eines Bestandsgebäudes.',
+		'lead'   => 'Modernisierung, energetische Ertüchtigung und Umbau im Bestand — auch parallel zu Neubauprojekten.',
+		'points' => [
+			'Kern- und Teilsanierung von Wohn- und Gewerbegebäuden',
+			'Energetische Sanierung nach KfW-Standard, Förderung mit beantragt',
+			'Anbau, Aufstockung und Umnutzung im genutzten Bestand',
+		],
+		'tag'    => null,
+	],
+];
+$total_services = count( $services );
+?>
+<section class="section" id="leistungen" data-theme="light">
+	<div class="container">
+		<header class="section-marker reveal">
+			<span class="mono mono--ink">01 · Ablauf</span>
+			<span class="mono">In vier Schritten zum Projekt</span>
+			<span class="section-marker__rule"></span>
+		</header>
+	</div>
+
+	<!-- SLIDESHOW: scroll-driven 4-step process -->
+	<div
+		class="slides slides--scroll"
+		id="vorgehen"
+		data-pkb-slides
+		data-mode="scroll"
+		data-total="<?php echo (int) $total_steps; ?>"
+	>
+		<div class="slides__viewport">
+			<div class="container">
+				<div class="slides__grid">
+					<div class="slides__stage">
+						<?php foreach ( $process_steps as $i => $step ) : ?>
+							<?php if ( ! empty( $step['type'] ) && $step['type'] === 'bauphasen' ) : ?>
+								<figure
+									class="slides__slide slides__slide--bauphasen<?php echo $i === 0 ? ' is-active' : ''; ?>"
+									data-step="<?php echo (int) $i; ?>"
+									data-pkb-bauphasen
+									data-frame-count="<?php echo (int) $step['frameCount']; ?>"
+									data-frames-url="<?php echo esc_url( $step['framesUrl'] ); ?>"
+								>
+									<img
+										class="slides__bauphasen-poster"
+										src="<?php echo esc_url( $step['framePoster'] ); ?>"
+										alt="<?php echo esc_attr( $step['alt'] ); ?>"
+										loading="lazy"
+										decoding="async"
+										width="1400"
+										height="787"
+									>
+									<canvas class="slides__bauphasen-canvas" aria-hidden="true"></canvas>
+								</figure>
+							<?php else : ?>
+								<figure class="slides__slide<?php echo $i === 0 ? ' is-active' : ''; ?>" data-step="<?php echo (int) $i; ?>">
+									<img
+										src="<?php echo esc_url( $step['image'] ); ?>"
+										alt="<?php echo esc_attr( $step['alt'] ); ?>"
+										loading="<?php echo $i === 0 ? 'eager' : 'lazy'; ?>"
+										decoding="async"
+										width="1800"
+										height="1010"
+									>
+								</figure>
+							<?php endif; ?>
+						<?php endforeach; ?>
+
+						<div class="slides__hud">
+							<span class="mono mono--on-dark" data-pkb-slides-index>01 / <?php echo str_pad( (string) $total_steps, 2, '0', STR_PAD_LEFT ); ?></span>
+						</div>
+					</div>
+
+					<div class="slides__captions">
+						<?php foreach ( $process_steps as $i => $step ) : ?>
+							<article class="slides__caption<?php echo $i === 0 ? ' is-active' : ''; ?>" data-step="<?php echo (int) $i; ?>">
+								<span class="mono"><?php echo esc_html( $step['num'] ); ?> · Schritt</span>
+								<h3><?php echo esc_html( $step['label'] ); ?></h3>
+								<p><?php echo esc_html( $step['desc'] ); ?></p>
+							</article>
+						<?php endforeach; ?>
+					</div>
+				</div>
+
+				<ol class="slides__nav" role="tablist" aria-label="Schritt auswählen">
+					<?php foreach ( $process_steps as $i => $step ) : ?>
+						<li>
+							<button
+								type="button"
+								class="slides__nav-btn<?php echo $i === 0 ? ' is-active' : ''; ?>"
+								data-step="<?php echo (int) $i; ?>"
+								role="tab"
+								aria-selected="<?php echo $i === 0 ? 'true' : 'false'; ?>"
+							>
+								<span class="slides__nav-num"><?php echo esc_html( $step['num'] ); ?></span>
+								<span class="slides__nav-label"><?php echo esc_html( $step['label'] ); ?></span>
+							</button>
+						</li>
+					<?php endforeach; ?>
+				</ol>
+			</div>
+		</div>
+
+		<div class="slides__triggers" aria-hidden="true">
+			<?php foreach ( $process_steps as $i => $step ) : ?>
+				<?php $is_bauphasen = ! empty( $step['type'] ) && $step['type'] === 'bauphasen'; ?>
+				<div
+					class="slides__trigger<?php echo $is_bauphasen ? ' slides__trigger--bauphasen' : ''; ?>"
+					data-step="<?php echo (int) $i; ?>"
+					<?php if ( $is_bauphasen ) : ?>data-bauphasen-trigger<?php endif; ?>
+				></div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+
+	<!-- CTA-BRIDGE: dunkle Spannungsbrücke zwischen Ablauf und Schwerpunkten -->
+	<aside class="cta-bridge" data-theme="dark" aria-label="Direkter Kontakt">
+		<div class="container cta-bridge__inner">
+			<span class="mono cta-bridge__eyebrow">Anfrage &amp; Kontakt</span>
+			<p class="cta-bridge__claim" data-pkb-parallax="-30">
+				Ein Meisterbetrieb<br>als Generalunternehmer.
+			</p>
+			<div class="cta-bridge__actions" data-pkb-parallax="20">
+				<a class="btn btn--invert" href="#kontakt">Bauanfrage stellen</a>
+				<a class="mono cta-bridge__phone" href="tel:+4930000000">
+					<span aria-hidden="true">↗</span> +49 30 000 000 00
+				</a>
+			</div>
+		</div>
+	</aside>
+
+	<div class="container">
+		<!-- SCHWERPUNKTE: 4 Großbau-Leistungen — voneinander getrennt -->
+		<header class="section-marker section-marker--secondary reveal">
+			<span class="mono mono--ink">02 · Leistungen</span>
+			<span class="mono"><?php echo (int) $total_services; ?> Schwerpunkte im Hochbau</span>
+			<span class="section-marker__rule"></span>
+		</header>
+
+		<div class="services">
+			<?php foreach ( $services as $i => $s ) : ?>
+				<article class="service reveal">
+					<div class="service__media">
+						<div class="service__badge">
+							<span class="mono mono--on-dark"><?php echo esc_html( $s['num'] ); ?></span>
+							<?php if ( $s['tag'] ) : ?>
+								<span class="service__tag-overlay"><?php echo esc_html( $s['tag'] ); ?></span>
+							<?php endif; ?>
+						</div>
+						<img
+							src="<?php echo esc_url( $s['image'] ); ?>"
+							alt="<?php echo esc_attr( $s['alt'] ); ?>"
+							loading="lazy"
+							decoding="async"
+							width="1600"
+							height="1200"
+						>
+					</div>
+					<div class="service__content">
+						<div class="service__head">
+							<span class="mono service__num">Schwerpunkt <?php echo esc_html( $s['num'] ); ?> / <?php echo str_pad( (string) $total_services, 2, '0', STR_PAD_LEFT ); ?></span>
+							<span class="service__rule"></span>
+						</div>
+						<h3><?php echo esc_html( $s['title'] ); ?></h3>
+						<p class="service__lead"><?php echo esc_html( $s['lead'] ); ?></p>
+						<ul class="service__points">
+							<?php foreach ( $s['points'] as $point ) : ?>
+								<li><?php echo esc_html( $point ); ?></li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				</article>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
