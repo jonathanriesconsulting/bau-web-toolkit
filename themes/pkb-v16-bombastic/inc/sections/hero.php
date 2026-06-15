@@ -1,14 +1,14 @@
 <?php
 /**
  * Hero — full-bleed image background with text + CTA overlay.
- * Dunkle Kontrast-Insel #1. Bild: Platzhalter (Großbau-Motiv folgt).
+ * Dunkle Kontrast-Insel #1. Bild: authentischer Rohbau/Massivbau (textfrei, 2400×1155).
  */
 $theme_uri = get_template_directory_uri();
 ?>
 <section class="hero" id="top" data-theme="dark">
 	<div class="hero__bg" aria-hidden="true">
 		<img
-			src="<?php echo esc_url( $theme_uri . '/assets/images/hero-house.jpg' ); ?>"
+			src="<?php echo esc_url( $theme_uri . '/assets/images/rohbau-massivbau-berlin.jpg' ); ?>"
 			alt=""
 			loading="eager"
 			fetchpriority="high"
