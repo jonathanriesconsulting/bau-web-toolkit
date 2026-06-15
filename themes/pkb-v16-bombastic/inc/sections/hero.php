@@ -1,20 +1,20 @@
 <?php
 /**
  * Hero — full-bleed image background with text + CTA overlay.
- * Dunkle Kontrast-Insel #1. Bild: authentischer Rohbau/Massivbau (textfrei, 2400×1155).
+ * Dunkle Kontrast-Insel #1. Bild: Mehrfamilienhaus im Rohbau mit Kran (textfrei, 1600×900).
  */
 $theme_uri = get_template_directory_uri();
 ?>
 <section class="hero" id="top" data-theme="dark">
 	<div class="hero__bg" aria-hidden="true">
 		<img
-			src="<?php echo esc_url( $theme_uri . '/assets/images/rohbau-massivbau-berlin.jpg' ); ?>"
+			src="<?php echo esc_url( $theme_uri . '/assets/images/hero-mehrfamilienhaus-berlin.jpg' ); ?>"
 			alt=""
 			loading="eager"
 			fetchpriority="high"
 			decoding="async"
-			width="2400"
-			height="1155"
+			width="1600"
+			height="900"
 		>
 	</div>
 
