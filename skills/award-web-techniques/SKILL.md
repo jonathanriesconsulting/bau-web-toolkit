@@ -229,14 +229,14 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let lenis;
 if (!reduce) {
-  lenis = new Lenis({ lerp: 0.09, autoRaf: false }); // 0.09 = schwer/kontrolliert, NICHT bouncy 0.12
+  lenis = new Lenis({ lerp: 0.12, autoRaf: false }); // 0.12 = sauber/kontrolliert (validiert); 0.09 fühlt sich schwammig an
   lenis.on('scroll', ScrollTrigger.update);          // eine Quelle der Wahrheit
   gsap.ticker.add((t) => lenis.raf(t * 1000));       // EINE rAF — Lenis fährt auf GSAPs Ticker
   gsap.ticker.lagSmoothing(0);
 }
 ```
 
-- **`lerp: 0.09`** = seriös/schwer. `0.12+` wirkt verspielt → für einen Meisterbetrieb falsch.
+- **`lerp: 0.12`** = seriös/kontrolliert (validierter Default). `0.09` fühlt sich *schwammig* an (zu langer Catch-up-Schwanz); über `0.15` zeigt das Mausrad Notch-Stufen.
 - Lenis ist **transform-frei** → `position: sticky`/`fixed` bleibt intakt. Deshalb **kein ScrollSmoother** (dessen `translate` bricht sticky-Sektionen und damit Scroll-Cinema #10).
 - Pro Site **eine** rAF-Schleife. Nie `lenis.raf()` *und* `gsap.ticker` getrennt laufen lassen.
 

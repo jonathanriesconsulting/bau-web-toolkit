@@ -58,7 +58,7 @@ gsap.registerPlugin(ScrollTrigger);
 const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (!REDUCE && window.Lenis) {
-  const lenis = new Lenis({ lerp: 0.09, autoRaf: false }); // 0.09 = schwer/kontrolliert, NICHT bouncy 0.12
+  const lenis = new Lenis({ lerp: 0.12, autoRaf: false }); // 0.12 = sauber/kontrolliert (validiert); 0.09 fühlt sich schwammig an
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((t) => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);

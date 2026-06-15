@@ -9,7 +9,7 @@ The single hardest thing to get right in a "premium feel" build is making smooth
 
 The discipline: **Lenis owns the scroll position, GSAP's ticker owns the clock, ScrollTrigger just reads.** Lenis is transform-free (it scrolls the real document), so `position: sticky` and `position: fixed` keep working. That is the whole reason we **don't** use GSAP's ScrollSmoother — see Pitfalls.
 
-Target feel: heavy, controlled, expensive. `lerp: 0.09`. Not bouncy, not springy, no overshoot. Massivbau statt Jahrmarkt.
+Target feel: heavy, controlled, expensive. `lerp: 0.12` (validated default). Not bouncy, not springy, no overshoot. Massivbau statt Jahrmarkt. Note: `0.09` reads *schwammig*/floaty (too-long catch-up tail); `0.12` locks tighter to the input.
 
 ## When to use
 
@@ -72,7 +72,7 @@ Order is load-bearing. GSAP + ScrollTrigger **first**, then Lenis with `autoRaf:
 
   // ---- Lenis + GSAP: ONE rAF --------------------------------------------
   const lenis = new Lenis({
-    lerp: 0.09,            // heavy/controlled. 0.12+ starts to feel bouncy — don't.
+    lerp: 0.12,            // controlled, locked to input. <0.10 feels schwammig/floaty; >0.15 re-exposes mouse-wheel notch-steps.
     wheelMultiplier: 1,
     smoothWheel: true,
     autoRaf: false,        // CRITICAL: we drive raf from GSAP's ticker, not Lenis.

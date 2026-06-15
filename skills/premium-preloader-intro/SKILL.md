@@ -257,7 +257,7 @@ This is the whole engine. Real progress, first-visit gate, failsafe, reduced-mot
 
     // GSAP + ScrollTrigger first, then Lenis on the SAME rAF.
     const Lenis = window.Lenis;
-    const lenis = new Lenis({ lerp: 0.09, autoRaf: false }); // heavy/controlled, not bouncy
+    const lenis = new Lenis({ lerp: 0.12, autoRaf: false }); // controlled (validiert); <0.10 fühlt sich schwammig an
     window.__lenis = lenis;
 
     if (window.gsap && window.ScrollTrigger) {
