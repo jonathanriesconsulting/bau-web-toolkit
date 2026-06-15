@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.6.0-bombastic' );
+define( 'PKB_THEME_VERSION', '1.6.1-bombastic' );
 
 /**
  * Theme setup.

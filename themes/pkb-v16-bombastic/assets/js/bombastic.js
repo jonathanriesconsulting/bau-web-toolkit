@@ -36,7 +36,14 @@
   // ----------------------------------------------------------------
   var lenis = null;
   if (hasLenis && !reduce) {
-    lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 1, autoRaf: false });
+    lenis = new Lenis({
+      lerp: 0.12,          // 0.09 war zu träge → "schwammig". 0.12 koppelt eng an die Eingabe, bremst entschieden.
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      syncTouch: false,    // Mobile nutzt natives OS-Momentum (sauberer als Lenis-Touch-Glättung)
+      overscroll: false,   // kein Gummiband am Seitenrand — harter, kontrollierter Stopp
+      autoRaf: false,
+    });
     if (hasST) {
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
@@ -52,7 +59,7 @@
         var target = document.querySelector(id);
         if (!target) return;
         e.preventDefault();
-        lenis.scrollTo(target, { offset: -72, duration: 1.2 });
+        lenis.scrollTo(target, { offset: -72, duration: 0.9, easing: function (t) { return 1 - Math.pow(1 - t, 3); } });
       });
     });
   }
@@ -111,17 +118,17 @@
   // ---- REVEAL ----
   function initReveals() {
     gsap.utils.toArray('.reveal').forEach(function (el) {
-      gsap.fromTo(el, { opacity: 0, y: 30 }, {
-        opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      gsap.fromTo(el, { opacity: 0, y: 18 }, {
+        opacity: 1, y: 0, duration: 0.6, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true },
         onStart: function () { el.classList.add('is-visible'); },
       });
     });
     document.querySelectorAll('.services, .trust-bar__inner, .about__facts').forEach(function (group) {
       if (!group.children.length) return;
-      gsap.fromTo(group.children, { opacity: 0, y: 26 }, {
-        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', stagger: 0.08,
-        scrollTrigger: { trigger: group, start: 'top 85%', once: true },
+      gsap.fromTo(group.children, { opacity: 0, y: 16 }, {
+        opacity: 1, y: 0, duration: 0.55, ease: 'power3.out', stagger: 0.06,
+        scrollTrigger: { trigger: group, start: 'top 88%', once: true },
       });
     });
   }
@@ -137,7 +144,7 @@
           type: 'lines', mask: 'lines', autoSplit: true,
           onSplit: function (self) {
             return gsap.from(self.lines, {
-              yPercent: 110, opacity: 0, duration: 1.05, ease: 'expo.out', stagger: 0.1,
+              yPercent: 100, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.07,
               scrollTrigger: { trigger: el, start: 'top 88%', once: true },
             });
           },
@@ -151,9 +158,10 @@
     var bg = document.querySelector('.hero__bg img');
     var hero = document.querySelector('.hero');
     if (!bg || !hero) return;
+    // Reines Ken-Burns-Zoom (kein yPercent-Slide → kein "Schwimmen"), gebremster scrub statt unbounded.
     gsap.fromTo(bg, { scale: 1.0 }, {
-      scale: 1.08, yPercent: 10, ease: 'none',
-      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true },
+      scale: 1.05, ease: 'none',
+      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.3, invalidateOnRefresh: true },
     });
   }
 
@@ -168,7 +176,7 @@
       ScrollTrigger.create({
         trigger: el, start: 'top 90%', once: true,
         onEnter: function () {
-          gsap.to(obj, { v: end, duration: 1.5, ease: 'expo.out',
+          gsap.to(obj, { v: end, duration: 1.2, ease: 'power2.out',
             onUpdate: function () {
               var n = Math.round(obj.v);
               el.textContent = (pad ? String(n).padStart(parseInt(pad, 10), '0') : n) + suffix;

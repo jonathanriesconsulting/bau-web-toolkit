@@ -70,7 +70,11 @@ Text Domain: pkb
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-html:focus-within { scroll-behavior: smooth; }
+html, body { overscroll-behavior-y: none; } /* kein Mac-Gummiband am Seitenrand */
+/* Natives Smooth-Scroll NUR auf dem Nicht-Lenis-Pfad (reduced-motion / kein JS) — sonst doppelt geglättet */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.lenis):focus-within { scroll-behavior: smooth; }
+}
 body {
   min-height: 100dvh;
   font-family: var(--ff-sans);
@@ -299,6 +303,9 @@ p  { text-wrap: pretty; }
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center 55%;
+  will-change: transform;      /* das tatsächlich parallaxte Element → eigene Compositor-Ebene */
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 .hero__bg::after {
   content: "";
