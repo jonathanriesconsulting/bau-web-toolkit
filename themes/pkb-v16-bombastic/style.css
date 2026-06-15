@@ -69,11 +69,10 @@ Text Domain: pkb
    ============================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-html, body { overscroll-behavior-y: none; } /* kein Mac-Gummiband am Seitenrand */
-/* Natives Smooth-Scroll NUR auf dem Nicht-Lenis-Pfad (reduced-motion / kein JS) — sonst doppelt geglättet */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 80px; }
+/* Natives, normales Scrollen (Maus/Trackpad). Nur Anker-Links scrollen sanft via CSS — kein Hijack. */
 @media (prefers-reduced-motion: no-preference) {
-  html:not(.lenis):focus-within { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 }
 body {
   min-height: 100dvh;
@@ -1391,15 +1390,10 @@ p  { text-wrap: pretty; }
 }
 
 /* =============================================================
-   v16 BOMBASTIC — Award-Tier-Layer (Preloader, Grain, Cursor,
-   Magnetic, Split-Reveals). Alles greift nur bei .pkb-js und
-   wird unter prefers-reduced-motion neutralisiert.
+   v16 — Interaction-Layer (Preloader, Grain, Split-Reveals).
+   NATIVES Scrollen, NATIVER Mauszeiger. Greift nur bei .pkb-js,
+   unter prefers-reduced-motion neutralisiert.
    ============================================================= */
-
-/* Lenis smooth-scroll Grundregeln */
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-.lenis.lenis-stopped { overflow: hidden; }
 
 /* ---- PRELOADER (nur sichtbar wenn JS aktiv) ---- */
 .pkb-preloader { display: none; }
@@ -1434,25 +1428,7 @@ html.lenis, html.lenis body { height: auto; }
 }
 @media (prefers-reduced-motion: reduce) { .pkb-grain { display: none; } }
 
-/* ---- CUSTOM CURSOR ---- */
-.pkb-cursor__dot, .pkb-cursor__ring {
-  position: fixed; top: 0; left: 0; z-index: 9000; pointer-events: none;
-  border-radius: 50%; translate: -50% -50%;
-  transition: opacity .3s ease, width .3s ease, height .3s ease, background .3s ease, border-color .3s ease;
-  mix-blend-mode: difference;
-}
-.pkb-cursor__dot { width: 7px; height: 7px; background: #fff; }
-.pkb-cursor__ring { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.6); }
-.pkb-has-cursor, .pkb-has-cursor a, .pkb-has-cursor button,
-.pkb-has-cursor .btn, .pkb-has-cursor summary, .pkb-has-cursor input,
-.pkb-has-cursor textarea, .pkb-has-cursor select { cursor: none; }
-.pkb-cursor-hover .pkb-cursor__ring { width: 64px; height: 64px; border-color: rgba(255,255,255,0.9); }
-.pkb-cursor-hover .pkb-cursor__dot { width: 4px; height: 4px; }
-.pkb-cursor-hidden .pkb-cursor__dot, .pkb-cursor-hidden .pkb-cursor__ring { opacity: 0; }
-@media (pointer: coarse) { .pkb-cursor__dot, .pkb-cursor__ring { display: none; } }
-
-/* ---- MAGNETIC buttons ---- */
-.pkb-js .btn, .pkb-js .header-cta, .pkb-js .mobilebar__cta { will-change: transform; }
+/* Custom-Cursor & Magnetic ENTFERNT — nativer Mauszeiger, normales Hover-Verhalten. */
 
 /* ---- SPLIT-LINE masking + GSAP reveal gating ---- */
 .pkb-js .line { overflow: hidden; padding-bottom: 0.08em; }
@@ -1467,6 +1443,6 @@ html.lenis, html.lenis body { height: auto; }
 
 @media print {
   .site-header, .hero__bg::after, .mobilebar, .nav-toggle,
-  .pkb-preloader, .pkb-grain, .pkb-cursor__dot, .pkb-cursor__ring { display: none; }
+  .pkb-preloader, .pkb-grain { display: none; }
   body { color: #000; background: #fff; }
 }

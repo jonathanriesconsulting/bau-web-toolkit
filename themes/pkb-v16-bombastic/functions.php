@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.6.1-bombastic' );
+define( 'PKB_THEME_VERSION', '1.7.1-native' );
 
 /**
  * Theme setup.
@@ -57,39 +57,88 @@ add_action( 'wp_enqueue_scripts', static function () {
 		true
 	);
 
-	// Award-Tier-Stack (CDN, im Footer): Lenis 1.3.23 + GSAP 3.15 (SplitText seit 3.13 frei).
-	// Progressive Enhancement: bombastic.js degradiert sauber, falls eine Lib nicht lädt.
-	wp_enqueue_style(  'lenis-css',  'https://unpkg.com/lenis@1.3.23/dist/lenis.css', [], null );
-	wp_enqueue_script( 'lenis',      'https://unpkg.com/lenis@1.3.23/dist/lenis.min.js', [], null, true );
+	// Scroll-Reveals/Hero-Zoom auf NATIVEM Scroll: GSAP 3.15 + ScrollTrigger (+ SplitText, seit 3.13 frei).
+	// KEIN Lenis/Smooth-Scroll, KEIN Custom-Cursor. bombastic.js degradiert sauber, falls eine Lib fehlt.
 	wp_enqueue_script( 'gsap',       'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js', [], null, true );
 	wp_enqueue_script( 'gsap-st',    'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js', [ 'gsap' ], null, true );
 	wp_enqueue_script( 'gsap-split', 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js', [ 'gsap' ], null, true );
 	wp_enqueue_script(
 		'pkb-bombastic',
 		get_template_directory_uri() . '/assets/js/bombastic.js',
-		[ 'lenis', 'gsap', 'gsap-st', 'gsap-split' ],
+		[ 'gsap', 'gsap-st', 'gsap-split' ],
 		PKB_THEME_VERSION,
 		true
 	);
 } );
 
 /**
- * Preconnect to CDN hosts for the award-tier stack.
+ * Preconnect to the GSAP CDN host.
  */
 add_action( 'wp_head', static function () {
-	echo "<link rel='preconnect' href='https://unpkg.com' crossorigin>\n";
-	echo "<link rel='preconnect' href='https://cdnjs.cloudflare.com' crossorigin>\n";
+	echo "<link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin>\n";
 }, 1 );
 
 /**
- * Preconnect to font hosts + meta description.
+ * SEO-Kopfzeile: Font-Preconnects, Description, Robots, Canonical, hreflang,
+ * Open Graph, Twitter-Card, Geo-Meta, Hero-Preload (LCP). Local SEO Berlin/Brandenburg.
  */
 add_action( 'wp_head', static function () {
+	$url   = home_url( '/' );
+	$theme = get_template_directory_uri();
+	$img   = $theme . '/assets/images/rohbau-massivbau-berlin.jpg';
+	$desc  = 'Pascal Kacemer Bauunternehmung GmbH — meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg. Mehrfamilienhäuser, Wohnquartiere, Gewerbebau und Sanierung zum verbindlichen Festpreis.';
+	$title = 'Generalunternehmer Berlin & Brandenburg — Schlüsselfertiger Hochbau | Pascal Kacemer Bauunternehmung GmbH';
+
+	// Font-Hosts vorverbinden
 	echo "<link rel='preconnect' href='https://api.fontshare.com' crossorigin>\n";
 	echo "<link rel='preconnect' href='https://fonts.googleapis.com'>\n";
 	echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>\n";
-	echo '<meta name="description" content="Pascal Kacemer Bauunternehmung GmbH — meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg. Mehrfamilienhäuser, Wohnquartiere, Gewerbebau.">' . "\n";
+
+	// Hero-Bild für LCP vorladen
+	echo '<link rel="preload" as="image" href="' . esc_url( $img ) . '" fetchpriority="high">' . "\n";
+
+	// Description + Canonical + Sprach-Alternativen (robots läuft über den wp_robots-Filter unten → genau EIN Tag)
+	echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<link rel="canonical" href="' . esc_url( $url ) . '">' . "\n";
+	echo '<link rel="alternate" hreflang="de-DE" href="' . esc_url( $url ) . '">' . "\n";
+	echo '<link rel="alternate" hreflang="x-default" href="' . esc_url( $url ) . '">' . "\n";
+
+	// Open Graph
+	echo '<meta property="og:type" content="website">' . "\n";
+	echo '<meta property="og:site_name" content="Pascal Kacemer Bauunternehmung GmbH">' . "\n";
+	echo '<meta property="og:locale" content="de_DE">' . "\n";
+	echo '<meta property="og:title" content="' . esc_attr( $title ) . '">' . "\n";
+	echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<meta property="og:url" content="' . esc_url( $url ) . '">' . "\n";
+	echo '<meta property="og:image" content="' . esc_url( $img ) . '">' . "\n";
+	echo '<meta property="og:image:width" content="2400">' . "\n";
+	echo '<meta property="og:image:height" content="1155">' . "\n";
+	echo '<meta property="og:image:alt" content="Rohbau eines Massivhauses in Brandenburg im Morgenlicht">' . "\n";
+
+	// Twitter
+	echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+	echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '">' . "\n";
+	echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<meta name="twitter:image" content="' . esc_url( $img ) . '">' . "\n";
+
+	// Geo (Local SEO — Berlin-Buch)
+	echo '<meta name="geo.region" content="DE-BE">' . "\n";
+	echo '<meta name="geo.placename" content="Berlin">' . "\n";
+	echo '<meta name="geo.position" content="52.6330;13.4955">' . "\n";
+	echo '<meta name="ICBM" content="52.6330, 13.4955">' . "\n";
 }, 1 );
+
+/**
+ * Robots: genau EIN vollständiges Meta-Tag (erweitert das WordPress-Core-Tag, statt ein zweites zu emittieren).
+ */
+add_filter( 'wp_robots', static function ( array $robots ): array {
+	$robots['index']             = true;
+	$robots['follow']            = true;
+	$robots['max-snippet']       = '-1';
+	$robots['max-image-preview'] = 'large';
+	$robots['max-video-preview'] = '-1';
+	return $robots;
+} );
 
 /**
  * Anchor sections of the onepager. Single source of truth.
@@ -157,16 +206,21 @@ function pkb_faqs(): array {
 add_action( 'wp_head', static function () {
 	$base = home_url( '/' );
 
+	$theme = get_template_directory_uri();
 	$org = [
 		'@context'    => 'https://schema.org',
-		'@type'       => 'GeneralContractor',
+		'@type'       => [ 'GeneralContractor', 'LocalBusiness' ],
 		'@id'         => $base . '#organization',
 		'name'        => 'Pascal Kacemer Bauunternehmung GmbH',
-		'description' => 'Meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg — Mehrfamilienhäuser, Wohnquartiere, Gewerbebau.',
+		'alternateName' => 'PKB Bauunternehmung',
+		'description' => 'Meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg — Mehrfamilienhäuser, Wohnquartiere, Gewerbebau und Sanierung zum verbindlichen Festpreis.',
+		'slogan'      => 'Schlüsselfertiger Hochbau aus einer Hand.',
 		'url'         => $base,
-		'logo'        => get_template_directory_uri() . '/assets/logo.svg',
+		'logo'        => $theme . '/assets/logo.svg',
+		'image'       => $theme . '/assets/images/rohbau-massivbau-berlin.jpg',
 		'telephone'   => '+49 30 000 000 00', /* TODO: KUNDE PRÜFEN — echte Nummer */
 		'email'       => 'info@kacemer-bau.de', /* TODO: KUNDE PRÜFEN */
+		'priceRange'  => '€€€',
 		'address'     => [
 			'@type'           => 'PostalAddress',
 			'streetAddress'   => 'Alt-Buch 57',
@@ -175,11 +229,34 @@ add_action( 'wp_head', static function () {
 			'addressRegion'   => 'Berlin',
 			'addressCountry'  => 'DE',
 		],
+		'geo'         => [
+			'@type'     => 'GeoCoordinates',
+			'latitude'  => 52.6330,
+			'longitude' => 13.4955,
+		],
 		'areaServed'  => [
 			[ '@type' => 'City', 'name' => 'Berlin' ],
-			[ '@type' => 'State', 'name' => 'Brandenburg' ],
+			[ '@type' => 'City', 'name' => 'Potsdam' ],
+			[ '@type' => 'City', 'name' => 'Bernau bei Berlin' ],
+			[ '@type' => 'AdministrativeArea', 'name' => 'Brandenburg' ],
 		],
-		'knowsAbout'  => [ 'Hochbau', 'Generalunternehmer', 'Mehrfamilienhaus', 'Wohnungsbau', 'Gewerbebau', 'Schlüsselfertigbau', 'Sanierung' ],
+		'serviceArea' => [
+			'@type'        => 'GeoCircle',
+			'geoMidpoint'  => [ '@type' => 'GeoCoordinates', 'latitude' => 52.5200, 'longitude' => 13.4050 ],
+			'geoRadius'    => '120000',
+		],
+		'openingHoursSpecification' => [
+			'@type'     => 'OpeningHoursSpecification',
+			'dayOfWeek' => [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ],
+			'opens'     => '08:00',
+			'closes'    => '18:00',
+		],
+		'founder'     => [
+			'@type'    => 'Person',
+			'name'     => 'Pascal Kacemer',
+			'jobTitle' => 'Eingetragener Meister im Bauhandwerk',
+		],
+		'knowsAbout'  => [ 'Hochbau', 'Generalunternehmer', 'Schlüsselfertigbau', 'Mehrfamilienhaus', 'Wohnungsbau', 'Wohnquartier', 'Gewerbebau', 'Massivbau', 'Sanierung', 'KfW-Effizienzhaus', 'Bauleitung' ],
 		'identifier'  => 'HRB 286721 B',
 	];
 	echo "\n<script type='application/ld+json'>" . wp_json_encode( $org, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
