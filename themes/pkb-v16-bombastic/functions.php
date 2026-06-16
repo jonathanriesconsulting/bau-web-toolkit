@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.7.1-native' );
+define( 'PKB_THEME_VERSION', '1.7.2-native' );
 
 /**
  * Theme setup.
@@ -59,13 +59,12 @@ add_action( 'wp_enqueue_scripts', static function () {
 
 	// Scroll-Reveals/Hero-Zoom auf NATIVEM Scroll: GSAP 3.15 + ScrollTrigger (+ SplitText, seit 3.13 frei).
 	// KEIN Lenis/Smooth-Scroll, KEIN Custom-Cursor. bombastic.js degradiert sauber, falls eine Lib fehlt.
-	wp_enqueue_script( 'gsap',       'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js', [], null, true );
-	wp_enqueue_script( 'gsap-st',    'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js', [ 'gsap' ], null, true );
-	wp_enqueue_script( 'gsap-split', 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js', [ 'gsap' ], null, true );
+	wp_enqueue_script( 'gsap',    'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js', [], null, true );
+	wp_enqueue_script( 'gsap-st', 'https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js', [ 'gsap' ], null, true );
 	wp_enqueue_script(
 		'pkb-bombastic',
 		get_template_directory_uri() . '/assets/js/bombastic.js',
-		[ 'gsap', 'gsap-st', 'gsap-split' ],
+		[ 'gsap', 'gsap-st' ],
 		PKB_THEME_VERSION,
 		true
 	);

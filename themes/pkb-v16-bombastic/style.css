@@ -1430,15 +1430,13 @@ p  { text-wrap: pretty; }
 
 /* Custom-Cursor & Magnetic ENTFERNT — nativer Mauszeiger, normales Hover-Verhalten. */
 
-/* ---- SPLIT-LINE masking + GSAP reveal gating ---- */
-.pkb-js .line { overflow: hidden; padding-bottom: 0.08em; }
+/* ---- GSAP reveal gating ---- */
 .pkb-js .reveal { animation: none !important; }
 
 /* GSAP übernimmt Reveals; ohne reduced-motion sind .reveal initial via JS gesetzt.
    Unter reduced-motion bleibt alles sofort sichtbar. */
 @media (prefers-reduced-motion: reduce) {
   .pkb-js .reveal { opacity: 1 !important; transform: none !important; }
-  .pkb-js .line { overflow: visible; }
 }
 
 @media print {

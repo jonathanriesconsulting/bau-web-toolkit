@@ -2,8 +2,8 @@
  * PKB v16 — interaction layer (NATIVES Scrollen + NATIVER Mauszeiger).
  *
  *   · Preloader — Counter, NUR Erstbesuch (sessionStorage)
- *   · GSAP 3.15 SplitText line-mask Reveals (seit 3.13 lizenzfrei)
- *   · Reveal-on-scroll, Hero Ken-Burns, Count-up (data-count) — auf NATIVEM Scroll
+ *   · Reveal-on-scroll (Fade-up), Hero Ken-Burns, Count-up (data-count) — auf NATIVEM Scroll
+ *   · KEIN SplitText/Line-Mask (schnitt Unterlängen ab) — Display-Headlines faden nur sanft ein
  *
  * BEWUSST ENTFERNT: Smooth-Scroll (Lenis), Custom-Cursor, Magnetic-Buttons.
  * Scrollen & Maus sind nativ/normal. ScrollTrigger läuft direkt auf nativem Scroll.
@@ -16,15 +16,9 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGSAP  = typeof window.gsap !== 'undefined';
   var hasST    = hasGSAP && typeof window.ScrollTrigger !== 'undefined';
-  var hasSplit = hasGSAP && typeof window.SplitText !== 'undefined';
 
   root.classList.add('pkb-js');
-  if (hasGSAP) {
-    var plugins = [];
-    if (hasST) plugins.push(window.ScrollTrigger);
-    if (hasSplit) plugins.push(window.SplitText);
-    if (plugins.length) gsap.registerPlugin.apply(gsap, plugins);
-  }
+  if (hasST) gsap.registerPlugin(window.ScrollTrigger);
 
   // ----------------------------------------------------------------
   // PRELOADER — nur Erstbesuch. Scroll bleibt nativ; während Intro kurz gesperrt.
@@ -94,24 +88,15 @@
     });
   }
 
-  // ---- SPLITTEXT line-mask (GSAP 3.15, frei) ----
+  // ---- Display-Headlines: dezenter Fade-up (KEIN Line-Mask → schneidet NIE Unterlängen g/p/j ab) ----
   function initSplit() {
-    if (!hasSplit) return;
-    // Hero-Headline BEWUSST ausgenommen: sie ist das LCP-Element → sofort scharf sichtbar (gut für SEO/Seriosität).
     var targets = document.querySelectorAll('.intro-band__claim, .about__display, .faq-head__title, .contact__display, .cta-bridge__claim');
     targets.forEach(function (el) {
       if (!el || !el.textContent.trim()) return;
-      try {
-        SplitText.create(el, {
-          type: 'lines', mask: 'lines', autoSplit: true,
-          onSplit: function (self) {
-            return gsap.from(self.lines, {
-              yPercent: 100, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.07,
-              scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-            });
-          },
-        });
-      } catch (e) { /* SplitText API-Variante? still readable */ }
+      gsap.fromTo(el, { opacity: 0, y: 22 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      });
     });
   }
 
