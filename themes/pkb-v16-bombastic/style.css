@@ -1441,6 +1441,20 @@ p  { text-wrap: pretty; }
   .pkb-js .reveal { opacity: 1 !important; transform: none !important; }
 }
 
+/* =============================================================
+   Kicker/Marker/Zähler ausgeblendet ("Fußnoten" raus, User-Wunsch).
+   NUR die dekorativen Mono-Labels — echte Inhalts-Labels
+   (Telefon/E-Mail/Sitz, Erfahrung/Qualifikation/Region) bleiben.
+   ============================================================= */
+.section-marker,        /* "WER WIR SIND · PKB · BERLIN", "01 · ABLAUF · …", "04 · FAQ" … */
+.slides__hud,           /* "04 / 04" Zähler */
+.slides__caption .mono, /* "01 · Schritt" */
+.cta-bridge__eyebrow,   /* "Anfrage & Kontakt" */
+.service__head,         /* "Schwerpunkt 01 / 04" + Strich */
+.faq-item__num {        /* "01", "02" … */
+  display: none !important;
+}
+
 @media print {
   .site-header, .hero__bg::after, .mobilebar, .nav-toggle,
   .pkb-preloader, .pkb-grain { display: none; }
