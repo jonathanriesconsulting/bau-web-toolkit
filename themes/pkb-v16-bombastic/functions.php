@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.7.2-native' );
+define( 'PKB_THEME_VERSION', '1.7.3-native' );
 
 /**
  * Theme setup.
