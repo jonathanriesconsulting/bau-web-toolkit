@@ -69,7 +69,7 @@ Text Domain: pkb
    ============================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 80px; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 80px; overflow-x: clip; }
 /* Natives, normales Scrollen (Maus/Trackpad). Nur Anker-Links scrollen sanft via CSS — kein Hijack. */
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
@@ -827,9 +827,11 @@ p  { text-wrap: pretty; }
 .service__media {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4/3;
   background: #f5f5f5;
   isolation: isolate;
+  min-width: 0; /* Grid-Item darf schrumpfen — verhindert horizontalen Überlauf */
+  /* KEIN aspect-ratio im 2-Spalten-Desktop: Bild füllt die Zeilenhöhe (stretch),
+     Breite = Grid-Spalte. aspect-ratio nur im gestapelten Mobil-Layout (unten). */
 }
 .service__media img {
   width: 100%; height: 100%;
@@ -880,7 +882,9 @@ p  { text-wrap: pretty; }
   padding: clamp(1.75rem, 1rem + 2vw, 3rem);
   background: var(--c-white);
   border-left: 1px solid var(--c-line);
+  min-width: 0; /* Grid-Item darf schrumpfen — Text bricht um statt überzulaufen */
 }
+.service h3, .service__lead, .service__points li { overflow-wrap: break-word; }
 .service__head {
   display: flex;
   align-items: center;
@@ -926,6 +930,7 @@ p  { text-wrap: pretty; }
 }
 @media (max-width: 800px) {
   .service { grid-template-columns: 1fr; }
+  .service__media { aspect-ratio: 4/3; } /* gestapelt: Bild braucht definierte Höhe */
   .service:nth-child(even) .service__media { order: 0; }
   .service:nth-child(even) .service__content { order: 0; border-left: 0; }
   .service__content { border-right: 0; padding: 1.5rem; }
