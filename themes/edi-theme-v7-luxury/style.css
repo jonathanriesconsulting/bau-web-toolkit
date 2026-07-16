@@ -221,3 +221,18 @@ details[open] .faq__icon{transform:rotate(45deg)}
 @keyframes reveal-fallback { to { opacity: 1; transform: none; } }
 .reveal { animation: reveal-fallback 1ms 2s forwards; }
 .reveal.is-visible { animation: none; }
+
+/* ---- Licht-Karten (User-Wunsch "Lichtbrechung"): Leistungs-Bausteine +
+   Referenz-Karten hell auf dunklem Canvas. Dunkle Typo, tiefes Gold für
+   Labels (Kontrast auf hell), sharp corners bleiben. ---- */
+.leistung, .referenz { background: #f5f3ee; border-color: rgba(10,10,14,0.10); }
+.leistung:hover, .referenz:hover { background: #ffffff; border-color: rgba(143,113,64,0.45); }
+.leistung__num, .referenz__type { color: #8f7140; }
+.leistung__title, .referenz__title { color: #141118; }
+.leistung__lead, .leistung__bullets li { color: rgba(20,17,24,0.74); }
+.leistung__bullets { border-top-color: rgba(10,10,14,0.14); }
+.leistung__bullets li::before { background: #8f7140; }
+.referenz__num { color: rgba(10,10,14,0.10); }
+.referenz__meta { border-top-color: rgba(10,10,14,0.14); }
+.referenz__meta span { color: rgba(20,17,24,0.50); }
+.referenz__meta strong { color: #141118; }
