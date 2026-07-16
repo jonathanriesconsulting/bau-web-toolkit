@@ -19,8 +19,8 @@ Ersetzt wurden die früheren Platzhalter (teils KI-generiert) — gemäß Regel 
 
 | Adobe-ID | Motiv | Vorgesehener Slot | Status |
 |---|---|---|---|
-| 136449603 | Modernes MFH-Ensemble (Foto, Neubau-Quartier) | Karte 03 „Schlüsselfertigbau" (fertiges Objekt) oder Über-Sektion | ⏳ Kauf ausstehend (~9,99 € Standard) |
-| 219425449 | Sanierung Vorher/Nachher, Altbau-Raum mit Stuck (Foto) | Karte 04 „Sanierung & Bestand" (Alternative zur SW-Kernsanierung) | ⏳ Kauf ausstehend |
+| 136449603 | Modernes MFH-Ensemble (Foto, Neubau-Quartier) | Karte 03 „Schlüsselfertigbau" (fertiges Objekt) oder Über-Sektion | ✅ Comp eingebaut (Karte 03) — VOR GO-LIVE lizenzieren! |
+| 219425449 | Sanierung Vorher/Nachher, Altbau-Raum mit Stuck (Foto) | Karte 04 „Sanierung & Bestand" | ✅ Comp eingebaut — VOR GO-LIVE lizenzieren! |
 | 94711125 | EFH-Illustration „weiß mit Garage" (3D-Render) | ❌ nicht einsetzen — Stilbruch zu Foto-Look, EFH nicht Headline | verworfen |
 | 92015519 | EFH-Illustration „weiß mit Solar" (3D-Render) | ❌ nicht einsetzen — dito | verworfen |
 

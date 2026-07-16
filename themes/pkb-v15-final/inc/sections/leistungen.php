@@ -73,8 +73,8 @@ $services = [
 	[
 		'num'    => '03',
 		'title'  => 'Schlüsselfertigbau als GU',
-		'image'  => $theme_uri . '/assets/images/schluesseluebergabe-haus.jpg',
-		'alt'    => 'Schlüssel steckt in der Haustür eines fertiggestellten Gebäudes.',
+		'image'  => $theme_uri . '/assets/images/adobe-comp-136449603-mfh-ensemble.jpg', /* TODO GO-LIVE: Adobe 136449603 lizenzieren, Comp ersetzen */
+		'alt'    => 'Fertiggestelltes modernes Mehrfamilienhaus-Ensemble nach schlüsselfertiger Übergabe.',
 		'lead'   => 'Ein Vertrag für das gesamte Bauvorhaben — von Ausschreibung und Vergabe über die Bauleitung bis zur Abnahme der Nachunternehmer aus einer Hand.',
 		'points' => [
 			'Verbindlicher Festpreis nach Leistungsverzeichnis, Leistungsabgrenzung und Schnittstellen je Gewerk vertraglich definiert',
@@ -87,8 +87,8 @@ $services = [
 	[
 		'num'    => '04',
 		'title'  => 'Sanierung & Bestand',
-		'image'  => $theme_uri . '/assets/images/kernsanierung-altbau-tragwerk.jpg',
-		'alt'    => 'Kernsanierung eines historischen Gebäudes mit freigelegtem Stahltragwerk, Schwarzweiß.',
+		'image'  => $theme_uri . '/assets/images/adobe-comp-219425449-sanierung.jpg', /* TODO GO-LIVE: Adobe 219425449 lizenzieren, Comp ersetzen */
+		'alt'    => 'Altbau-Raum während der Sanierung — Vorher-Nachher-Vergleich mit Stuck und Kastenfenster.',
 		'lead'   => 'Modernisierung, energetische Ertüchtigung und Umbau im Bestand — als Generalunternehmer auch parallel zu laufenden Neubauprojekten.',
 		'points' => [
 			'Kern- und Teilsanierung von Wohn- und Gewerbegebäuden bis zum Eingriff in Tragwerk und Geschossdecken nach statischem Nachweis',
