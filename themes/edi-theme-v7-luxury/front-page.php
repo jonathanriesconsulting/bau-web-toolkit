@@ -24,31 +24,21 @@ get_header();
             <a href="#referenzen" class="btn btn--ghost">Referenzliste <span class="btn__arrow">→</span></a>
           </div>
         </div>
-        <aside class="hero__side reveal">
-          <div class="hero__meta-block hero__meta-block--gold">
-            <span class="mono">Termintreue</span>
-            <strong>94 %</strong>
-          </div>
-          <div class="hero__meta-block">
-            <span class="mono">GU-Projekte abgeschlossen</span>
-            <strong>38</strong>
-          </div>
-          <div class="hero__meta-block">
-            <span class="mono">Mitarbeiter eigene Kolonnen</span>
-            <strong>64</strong>
-          </div>
-          <div class="hero__meta-block">
-            <span class="mono">Angebot binnen</span>
-            <strong>5 Werktage</strong>
-          </div>
-          <div class="hero__meta-block">
-            <span class="mono">Betriebshaftpflicht</span>
-            <strong>10 Mio €</strong>
-          </div>
-        </aside>
       </div>
     </div>
   </section>
+
+  <!-- KENNZAHLEN-BAND — unter dem Hero eingereiht -->
+  <section class="statband reveal" aria-label="Kennzahlen">
+    <div class="container statband__grid">
+      <div class="statband__item statband__item--gold"><span class="mono">Termintreue</span><strong>94 %</strong></div>
+      <div class="statband__item"><span class="mono">GU-Projekte abgeschlossen</span><strong>38</strong></div>
+      <div class="statband__item"><span class="mono">Mitarbeiter eigene Kolonnen</span><strong>64</strong></div>
+      <div class="statband__item"><span class="mono">Angebot binnen</span><strong>5 Werktage</strong></div>
+      <div class="statband__item"><span class="mono">Betriebshaftpflicht</span><strong>10 Mio €</strong></div>
+    </div>
+  </section>
+
 
   <!-- INTRO -->
   <section class="section section--surface">
