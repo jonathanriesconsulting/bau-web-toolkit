@@ -190,3 +190,10 @@ ul{margin:0;padding:0;list-style:none}
 
 /* Globaler Schutz gegen horizontalen Überlauf (sticky-sicher, anders als hidden) */
 html { overflow-x: clip; }
+
+/* Reveal-Fallback: Inhalt darf NIE dauerhaft unsichtbar bleiben.
+   Falls das IntersectionObserver-JS nicht feuert (Cache/Edge-Case),
+   erzwingt diese Animation nach 2s den sichtbaren Endzustand. */
+@keyframes reveal-fallback { to { opacity: 1; transform: none; } }
+.reveal { animation: reveal-fallback 1ms 2s forwards; }
+.reveal.is-visible { animation: none; }

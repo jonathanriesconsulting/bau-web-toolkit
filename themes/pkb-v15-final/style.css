@@ -1405,3 +1405,12 @@ p  { text-wrap: pretty; }
   .site-header, .hero__bg::after, .mobilebar, .nav-toggle { display: none; }
   body { color: #000; background: #fff; }
 }
+
+/* Reveal-Fallback: Inhalt darf NIE dauerhaft unsichtbar bleiben, falls das
+   IntersectionObserver-JS nicht feuert. NUR im JS-Pfad — Browser mit
+   animation-timeline nutzen den nativen Scroll-Reveal (kein JS nötig). */
+@supports not (animation-timeline: view()) {
+  @keyframes reveal-fallback { to { opacity: 1; transform: none; } }
+  .reveal { animation: reveal-fallback 1ms 2s forwards; }
+  .reveal.is-visible { animation: none; }
+}
