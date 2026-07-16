@@ -9,7 +9,7 @@ get_header();
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__bg"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero.jpg" alt="Rohbau Berlin"></div>
+    <div class="hero__bg"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-rohbau-daemmerung.jpg" alt="Rohbau Berlin"></div>
     <div class="container hero__inner">
       <span class="hero__chip"><span class="hero__chip-dot"></span>PQ-VOB präqualifiziert · Nr. 12345</span>
       <div class="hero__grid">

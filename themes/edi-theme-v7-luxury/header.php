@@ -18,16 +18,16 @@
 <meta property="og:title" content="Rohbau-Subunternehmer für Generalunternehmer Berlin &amp; Brandenburg | EDI Hochbau GmbH">
 <meta property="og:description" content="Rohbau-Subunternehmer für GUs. PQ-VOB, 94 % Termintreue, VOB/B, eigene Kolonnen.">
 <meta property="og:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
-<meta property="og:image" content="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero.jpg">
+<meta property="og:image" content="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-rohbau-daemmerung.jpg">
 <meta property="og:image:width" content="2400">
 <meta property="og:image:height" content="1600">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rohbau-Subunternehmer für Generalunternehmer Berlin &amp; Brandenburg | EDI Hochbau GmbH">
 <meta name="twitter:description" content="Rohbau-Subunternehmer für GUs. PQ-VOB, 94 % Termintreue, VOB/B, eigene Kolonnen.">
-<meta name="twitter:image" content="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero.jpg">
+<meta name="twitter:image" content="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-rohbau-daemmerung.jpg">
 <meta name="geo.region" content="DE-BE">
 <meta name="geo.placename" content="Berlin">
-<link rel="preload" as="image" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-rohbau-daemmerung.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Manrope:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap">
 
@@ -42,7 +42,7 @@
   "telephone": "+49-30-XXXXXXX",
   "email": "kontakt@edi-hochbau.de",
   "url": "https://edi-hochbau.de/",
-  "image": "<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero.jpg",
+  "image": "<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-rohbau-daemmerung.jpg",
   "address": {"@type":"PostalAddress","addressLocality":"Berlin","addressRegion":"Berlin","addressCountry":"DE"},
   "geo": {"@type":"GeoCoordinates","latitude":52.52,"longitude":13.405},
   "areaServed":[{"@type":"City","name":"Berlin"},{"@type":"City","name":"Potsdam"},{"@type":"City","name":"Brandenburg an der Havel"},{"@type":"AdministrativeArea","name":"Brandenburg"}],

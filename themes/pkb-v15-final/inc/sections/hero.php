@@ -1,20 +1,20 @@
 <?php
 /**
  * Hero — full-bleed image background with text + CTA overlay.
- * Dunkle Kontrast-Insel #1. Bild: Rohbau + Kran in der Dämmerung (Pexels 17907062, echt, 2400×1600).
+ * Dunkle Kontrast-Insel #1. Bild: Berliner Wohnquartier-Baustelle mit Kran + Fernsehturm (User-generiert, 1672×941).
  */
 $theme_uri = get_template_directory_uri();
 ?>
 <section class="hero" id="top" data-theme="dark">
 	<div class="hero__bg" aria-hidden="true">
 		<img
-			src="<?php echo esc_url( $theme_uri . '/assets/images/rohbau-kran-daemmerung.jpg' ); ?>"
+			src="<?php echo esc_url( $theme_uri . '/assets/images/hero-quartier-berlin.jpg' ); ?>"
 			alt=""
 			loading="eager"
 			fetchpriority="high"
 			decoding="async"
-			width="2400"
-			height="1600"
+			width="1672"
+			height="941"
 		>
 	</div>
 
