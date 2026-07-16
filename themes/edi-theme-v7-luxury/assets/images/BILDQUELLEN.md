@@ -6,3 +6,4 @@
 | hero-old-backup.jpg | vorheriges Hero (Backup) | — |
 
 Hero-Wechsel auf User-Wunsch: „düsteres dämmriges Kran-Bild zu EDI" — passt zum Dark-Gold-Theme.
+| quote-team-baustelle.jpg | KI-generiert (User, ChatGPT, 2026-07-16) | Hintergrund Zitat-Sektion (86 % dunkel überblendet) |
