@@ -45,8 +45,8 @@ $services = [
 	[
 		'num'    => '01',
 		'title'  => 'Mehrfamilien- & Wohnungsbau',
-		'image'  => $theme_uri . '/assets/images/mfh-rohbau-stahlbeton.jpg',
-		'alt'    => 'Stahlbeton-Rohbau eines mehrgeschossigen Wohnhauses mit auskragenden Balkonplatten.',
+		'image'  => $theme_uri . '/assets/images/adobe-comp-136449603-mfh-ensemble.jpg', /* TODO GO-LIVE: Adobe 136449603 lizenzieren */
+		'alt'    => 'Modernes Mehrfamilienhaus-Ensemble in Berlin — Wohnquartier-Neubau.',
 		'lead'   => 'Schlüsselfertige Mehrfamilienhäuser und Wohnanlagen in Berlin und Brandenburg als Generalunternehmer — von Gründung und Bodenplatte bis zur bezugsfertigen Wohneinheit.',
 		'points' => [
 			'Roh- und Ausbau mehrgeschossiger Wohngebäude in Stahlbeton- und Mauerwerksbauweise mit Filigran- bzw. Elementdecken und Treppenhauskernen in Ortbeton',
@@ -73,8 +73,8 @@ $services = [
 	[
 		'num'    => '03',
 		'title'  => 'Schlüsselfertigbau als GU',
-		'image'  => $theme_uri . '/assets/images/adobe-comp-136449603-mfh-ensemble.jpg', /* TODO GO-LIVE: Adobe 136449603 lizenzieren, Comp ersetzen */
-		'alt'    => 'Fertiggestelltes modernes Mehrfamilienhaus-Ensemble nach schlüsselfertiger Übergabe.',
+		'image'  => $theme_uri . '/assets/images/adobe-comp-94711125-haus-illustration.jpg', /* TODO GO-LIVE: Adobe 94711125 lizenzieren (Illustration) */
+		'alt'    => 'Schlüsselfertiges weißes Einfamilienhaus mit Garage — Visualisierung.',
 		'lead'   => 'Ein Vertrag für das gesamte Bauvorhaben — von Ausschreibung und Vergabe über die Bauleitung bis zur Abnahme der Nachunternehmer aus einer Hand.',
 		'points' => [
 			'Verbindlicher Festpreis nach Leistungsverzeichnis, Leistungsabgrenzung und Schnittstellen je Gewerk vertraglich definiert',

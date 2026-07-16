@@ -19,8 +19,8 @@
 <meta property="og:description" content="Rohbau-Subunternehmer für GUs. PQ-VOB, 94 % Termintreue, VOB/B, eigene Kolonnen.">
 <meta property="og:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
 <meta property="og:image" content="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero.jpg">
-<meta property="og:image:width" content="2200">
-<meta property="og:image:height" content="1228">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1600">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rohbau-Subunternehmer für Generalunternehmer Berlin &amp; Brandenburg | EDI Hochbau GmbH">
 <meta name="twitter:description" content="Rohbau-Subunternehmer für GUs. PQ-VOB, 94 % Termintreue, VOB/B, eigene Kolonnen.">

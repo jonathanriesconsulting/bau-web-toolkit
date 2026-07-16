@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.5.3' );
+define( 'PKB_THEME_VERSION', '1.5.4' );
 
 /**
  * Theme setup.
