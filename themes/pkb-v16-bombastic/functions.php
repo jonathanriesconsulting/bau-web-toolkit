@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.7.7-native' );
+define( 'PKB_THEME_VERSION', '1.7.8-native' );
 
 /**
  * Theme setup.
@@ -126,6 +126,13 @@ add_action( 'wp_head', static function () {
 	echo '<meta name="geo.position" content="52.6330;13.4955">' . "\n";
 	echo '<meta name="ICBM" content="52.6330, 13.4955">' . "\n";
 }, 1 );
+
+/**
+ * SEO-Titel erzwingen — unabhängig vom WP-Site-Titel (wp-now-Default wäre sonst generisch).
+ */
+add_filter( 'pre_get_document_title', static function (): string {
+	return 'Generalunternehmer Berlin & Brandenburg — Schlüsselfertiger Hochbau | Pascal Kacemer Bauunternehmung GmbH';
+} );
 
 /**
  * Robots: genau EIN vollständiges Meta-Tag (erweitert das WordPress-Core-Tag, statt ein zweites zu emittieren).
