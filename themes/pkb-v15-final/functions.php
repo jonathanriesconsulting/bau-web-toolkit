@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.5.1' );
+define( 'PKB_THEME_VERSION', '1.5.2' );
 
 /**
  * Theme setup.
@@ -64,7 +64,7 @@ add_action( 'wp_enqueue_scripts', static function () {
 add_action( 'wp_head', static function () {
 	$url   = home_url( '/' );
 	$theme = get_template_directory_uri();
-	$img   = $theme . '/assets/images/hero-mehrfamilienhaus-berlin.jpg';
+	$img   = $theme . '/assets/images/rohbau-kran-daemmerung.jpg';
 	$desc  = 'Pascal Kacemer Bauunternehmung GmbH — meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg. Mehrfamilienhäuser, Wohnquartiere, Gewerbebau und Sanierung zum verbindlichen Festpreis.';
 	$title = 'Generalunternehmer Berlin & Brandenburg — Schlüsselfertiger Hochbau | Pascal Kacemer Bauunternehmung GmbH';
 
@@ -83,9 +83,9 @@ add_action( 'wp_head', static function () {
 	echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
 	echo '<meta property="og:url" content="' . esc_url( $url ) . '">' . "\n";
 	echo '<meta property="og:image" content="' . esc_url( $img ) . '">' . "\n";
-	echo '<meta property="og:image:width" content="1600">' . "\n";
-	echo '<meta property="og:image:height" content="900">' . "\n";
-	echo '<meta property="og:image:alt" content="Mehrfamilienhaus im Rohbau mit Baukran — Generalunternehmer Berlin und Brandenburg">' . "\n";
+	echo '<meta property="og:image:width" content="2400">' . "\n";
+	echo '<meta property="og:image:height" content="1600">' . "\n";
+	echo '<meta property="og:image:alt" content="Rohbau mit Baukran in der Dämmerung — Generalunternehmer Berlin und Brandenburg">' . "\n";
 	echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
 	echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '">' . "\n";
 	echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '">' . "\n";
@@ -188,7 +188,7 @@ add_action( 'wp_head', static function () {
 		'slogan'      => 'Schlüsselfertiger Hochbau aus einer Hand.',
 		'url'         => $base,
 		'logo'        => $theme . '/assets/logo.svg',
-		'image'       => $theme . '/assets/images/hero-mehrfamilienhaus-berlin.jpg',
+		'image'       => $theme . '/assets/images/rohbau-kran-daemmerung.jpg',
 		'telephone'   => '+49 30 000 000 00', /* TODO: KUNDE PRÜFEN — echte Nummer */
 		'email'       => 'info@kacemer-bau.de', /* TODO: KUNDE PRÜFEN */
 		'priceRange'  => '€€€',

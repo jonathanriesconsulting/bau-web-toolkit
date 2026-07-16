@@ -34,8 +34,8 @@ $process_steps = [
 	[
 		'num'   => '04',
 		'label' => 'Abnahme & Übergabe',
-		'image' => $theme_uri . '/assets/images/step-04-uebergabe.jpg',
-		'alt'   => 'Schlüsselübergabe vor einem fertiggestellten Mehrfamilienhaus.',
+		'image' => $theme_uri . '/assets/images/schluesseluebergabe-haus.jpg',
+		'alt'   => 'Schlüssel in der Haustür bei der Übergabe.',
 		'desc'  => 'Gemeinsame Abnahme, vollständige Dokumentation und schlüsselfertige Übergabe — termingerecht und bezugsfertig.',
 	],
 ];
@@ -45,8 +45,8 @@ $services = [
 	[
 		'num'    => '01',
 		'title'  => 'Mehrfamilien- & Wohnungsbau',
-		'image'  => $theme_uri . '/assets/images/service-mfh.jpg',
-		'alt'    => 'Mehrgeschossiges Mehrfamilienhaus im Rohbau mit Turmdrehkran.',
+		'image'  => $theme_uri . '/assets/images/mfh-rohbau-stahlbeton.jpg',
+		'alt'    => 'Stahlbeton-Rohbau eines mehrgeschossigen Wohnhauses mit auskragenden Balkonplatten.',
 		'lead'   => 'Schlüsselfertige Mehrfamilienhäuser und Wohnanlagen in Berlin und Brandenburg als Generalunternehmer — von Gründung und Bodenplatte bis zur bezugsfertigen Wohneinheit.',
 		'points' => [
 			'Roh- und Ausbau mehrgeschossiger Wohngebäude in Stahlbeton- und Mauerwerksbauweise mit Filigran- bzw. Elementdecken und Treppenhauskernen in Ortbeton',
@@ -59,8 +59,8 @@ $services = [
 	[
 		'num'    => '02',
 		'title'  => 'Gewerbe- & Hochbau',
-		'image'  => $theme_uri . '/assets/images/service-efh.jpg',
-		'alt'    => 'Gewerbebau im Stahlbeton-Rohbau mit Fassadengerüst.',
+		'image'  => $theme_uri . '/assets/images/gewerbebau-betonskelett-kran.jpg',
+		'alt'    => 'Betonskelett eines Gewerbebaus mit Turmdrehkran, Schwarzweiß.',
 		'lead'   => 'Gewerbe- und Funktionsbauten als Generalunternehmer — von der Gründung bis zur Schlüsselübergabe, mit verbindlichem Termin- und Kostenrahmen nach Leistungsverzeichnis.',
 		'points' => [
 			'Büro-, Hallen- und Mischnutzungsbauten in Stahlbeton-, Mauerwerks- oder Stahlbeton-Stahl-Hybridkonstruktion, je nach Stützraster und Spannweite',
@@ -73,8 +73,8 @@ $services = [
 	[
 		'num'    => '03',
 		'title'  => 'Schlüsselfertigbau als GU',
-		'image'  => $theme_uri . '/assets/images/step-04-uebergabe.jpg',
-		'alt'    => 'Fertiggestelltes Wohngebäude bei der schlüsselfertigen Übergabe.',
+		'image'  => $theme_uri . '/assets/images/schluesseluebergabe-haus.jpg',
+		'alt'    => 'Schlüssel steckt in der Haustür eines fertiggestellten Gebäudes.',
 		'lead'   => 'Ein Vertrag für das gesamte Bauvorhaben — von Ausschreibung und Vergabe über die Bauleitung bis zur Abnahme der Nachunternehmer aus einer Hand.',
 		'points' => [
 			'Verbindlicher Festpreis nach Leistungsverzeichnis, Leistungsabgrenzung und Schnittstellen je Gewerk vertraglich definiert',
@@ -87,8 +87,8 @@ $services = [
 	[
 		'num'    => '04',
 		'title'  => 'Sanierung & Bestand',
-		'image'  => $theme_uri . '/assets/images/service-sanierung.jpg',
-		'alt'    => 'Energetische Sanierung eines Bestandsgebäudes.',
+		'image'  => $theme_uri . '/assets/images/kernsanierung-altbau-tragwerk.jpg',
+		'alt'    => 'Kernsanierung eines historischen Gebäudes mit freigelegtem Stahltragwerk, Schwarzweiß.',
 		'lead'   => 'Modernisierung, energetische Ertüchtigung und Umbau im Bestand — als Generalunternehmer auch parallel zu laufenden Neubauprojekten.',
 		'points' => [
 			'Kern- und Teilsanierung von Wohn- und Gewerbegebäuden bis zum Eingriff in Tragwerk und Geschossdecken nach statischem Nachweis',
@@ -243,7 +243,7 @@ $total_services = count( $services );
 							loading="lazy"
 							decoding="async"
 							width="1600"
-							height="1200"
+							height="1067"
 						>
 					</div>
 					<div class="service__content">
