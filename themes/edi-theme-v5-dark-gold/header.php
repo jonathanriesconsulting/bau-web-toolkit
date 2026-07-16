@@ -47,7 +47,7 @@
   "areaServed":[{"@type":"City","name":"Berlin"},{"@type":"City","name":"Potsdam"},{"@type":"City","name":"Brandenburg an der Havel"},{"@type":"AdministrativeArea","name":"Brandenburg"}],
   "serviceArea":{"@type":"GeoCircle","geoMidpoint":{"@type":"GeoCoordinates","latitude":52.52,"longitude":13.405},"geoRadius":"120000"},
   "knowsAbout":["Rohbau","Stahlbetonbau","Mauerwerksbau","Schalungsarbeiten","Bewehrungsarbeiten","Massivbau","VOB/B","PQ-VOB","Filigrandecken","Sichtbeton"],
-  "numberOfEmployees":{"@type":"QuantitativeValue","minValue":60},
+  "numberOfEmployees":{"@type":"QuantitativeValue","value":64},
   "priceRange":"€€-€€€"
 }
 </script>

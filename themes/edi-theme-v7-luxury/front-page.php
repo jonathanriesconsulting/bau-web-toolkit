@@ -82,19 +82,18 @@ get_header();
         <article class="leistung leistung--lg reveal">
           <span class="leistung__num">01 / 05 — Stahlbetonbau</span>
           <h3 class="leistung__title">Stahlbeton & Sichtbeton</h3>
-          <p class="leistung__lead">Ortbeton, Halbfertigteile, Filigrandecken, Sichtbeton bis SB3. Eigenüberwachung nach DIN 1045-3, dokumentiert je Charge. Betongüten C20/25 bis C50/60.</p>
+          <p class="leistung__lead">Ortbeton, Filigrandecken und Sichtbeton bis SB3 — Eigenüberwachung nach DIN 1045-3, Betongüten C20/25 bis C50/60.</p>
           <ul class="leistung__bullets">
             <li>Bodenplatten · Weiße & schwarze Wannen</li>
             <li>Decken in Ortbeton + Filigran</li>
             <li>Stützen, Wände, Treppenhauskerne</li>
-            <li>Sichtbeton SB2 / SB3 nach DBV-Merkblatt</li>
           </ul>
         </article>
 
         <article class="leistung leistung--md reveal">
           <span class="leistung__num">02 / 05 — Mauerwerksbau</span>
           <h3 class="leistung__title">Mauerwerksbau</h3>
-          <p class="leistung__lead">Tragend und nicht-tragend. Kalksandstein, Porenbeton, Hochlochziegel. Statisch geprüfte Ausführung nach DIN 1053 / Eurocode 6.</p>
+          <p class="leistung__lead">Tragendes und nicht-tragendes Mauerwerk aus Kalksandstein, Porenbeton und Hochlochziegel — statisch geprüft nach DIN 1053 / Eurocode 6.</p>
           <ul class="leistung__bullets">
             <li>Tragende Außenwände</li>
             <li>Innenwände + Schallschutzwände</li>
@@ -105,7 +104,7 @@ get_header();
         <article class="leistung leistung--sm reveal">
           <span class="leistung__num">03 / 05 — Schalung</span>
           <h3 class="leistung__title">Schalungs­arbeiten</h3>
-          <p class="leistung__lead">Doka Framax Xlife und PERI im eigenen Park. Sondergewerke mit Verfügbarkeitszusage.</p>
+          <p class="leistung__lead">Decken-, Wand- und Sonderschalungen mit Doka- und PERI-Systemen aus dem eigenen Gerätepark.</p>
           <ul class="leistung__bullets">
             <li>Decken- und Wandschalung</li>
             <li>Sonderschalungen</li>
@@ -115,7 +114,7 @@ get_header();
         <article class="leistung leistung--sm reveal">
           <span class="leistung__num">04 / 05 — Bewehrung</span>
           <h3 class="leistung__title">Bewehrungs­arbeiten</h3>
-          <p class="leistung__lead">Eigene Eisenflechter-Kolonnen. Werks- und Verlegepläne nach DIN EN ISO 17660.</p>
+          <p class="leistung__lead">Eigene Eisenflechter-Kolonnen — Verlegung nach Werks- und Verlegeplänen gemäß DIN EN ISO 17660.</p>
           <ul class="leistung__bullets">
             <li>Mattenbewehrung + Stabstahl</li>
             <li>Verlegeprotokolle digital</li>
@@ -133,6 +132,14 @@ get_header();
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <!-- CTA nach Leistungen -->
+  <section class="cta-strip" aria-label="Festpreis anfordern">
+    <div class="container cta-strip__inner reveal">
+      <p class="cta-strip__text">LV vorhanden? <b>Festpreis-Angebot in 5 Werktagen.</b></p>
+      <a href="#kontakt" class="btn btn--primary">Festpreis anfordern <span class="btn__arrow">→</span></a>
     </div>
   </section>
 
@@ -227,12 +234,33 @@ get_header();
     </div>
   </section>
 
+  <!-- FAQ — 6 Top-Fragen der GU-Einkaufsabteilung -->
+  <section class="section" id="faq">
+    <div class="container">
+      <header class="section__head reveal">
+        <div>
+          <div class="eyebrow"><span class="mono">04 — Häufige Fragen</span><span class="eyebrow__rule"></span></div>
+          <h2 class="section__title">Was Einkaufsabteilungen<br><b>uns fragen.</b></h2>
+        </div>
+        <p class="section__lead">Die sechs Fragen, die in fast jeder GU-Anfrage auftauchen — direkt beantwortet. Alles Weitere klären wir am Telefon oder im LV-Gespräch.</p>
+      </header>
+      <div class="faq__list reveal">
+        <details class="faq__item"><summary class="faq__summary"><span>Wie schnell bekommen wir ein Angebot?</span><span class="faq__icon">+</span></summary><div class="faq__body">5 Werktage bei vollständigem LV. Bei dringenden Projekten indikatives Festpreis-Band binnen 48 Stunden mit ausdrücklichem Vorbehalt — finales Angebot folgt nach LV-Prüfung.</div></details>
+        <details class="faq__item"><summary class="faq__summary"><span>Pauschal- oder Einheitspreis?</span><span class="faq__icon">+</span></summary><div class="faq__body">Standard ist VOB/B-Einheitspreis. Pauschal nur bei vollständig geplantem Leistungsumfang und sauber abgegrenztem Risiko. Mengenmehrungen über 10&nbsp;% nach § 2 Abs. 3 VOB/B werden neu kalkuliert.</div></details>
+        <details class="faq__item"><summary class="faq__summary"><span>Sub-Sub-Vergabe?</span><span class="faq__icon">+</span></summary><div class="faq__body">Nein. Stahlbeton, Mauerwerk, Schalung und Bewehrung führen wir mit eigenen Kolonnen aus — 64 Mitarbeiter in 6 Kolonnen. Nur Spezial-Leistungen werden an gelistete Nachunternehmer vergeben, mit Ihrer schriftlichen Freigabe.</div></details>
+        <details class="faq__item"><summary class="faq__summary"><span>Akzeptieren Sie Vertragsstrafen?</span><span class="faq__icon">+</span></summary><div class="faq__body">Ja, im BGH-konformen Rahmen: maximal 5&nbsp;% der Auftragssumme als Obergrenze, gestaffelt nach Verzugswochen, mit Karenz von 5 Werktagen. Sittenwidrige Klauseln ohne Cap lehnen wir ab.</div></details>
+        <details class="faq__item"><summary class="faq__summary"><span>Wie ist die dokumentierte Termintreue?</span><span class="faq__icon">+</span></summary><div class="faq__body">94&nbsp;% der Projekte der letzten 24 Monate im vertraglich vereinbarten Termin. Beim Rest lag der Verzug im Schnitt bei 3 Werktagen — ausschließlich aus nicht von uns zu vertretenden Gründen, dokumentiert im Soll-Ist-Vergleich.</div></details>
+        <details class="faq__item"><summary class="faq__summary"><span>PQ-VOB-Status?</span><span class="faq__icon">+</span></summary><div class="faq__body">Präqualifiziert nach VOB mit jährlicher Verlängerung. § 28e SGB IV Haftung Ihrer Einkaufsabteilung ist damit sauber gelöst; Freistellungsbescheinigung nach § 48b EStG aktiv.</div></details>
+      </div>
+    </div>
+  </section>
+
   <!-- KONTAKT -->
   <section class="section" id="kontakt">
     <div class="container">
       <header class="section__head reveal">
         <div>
-          <div class="eyebrow"><span class="mono">04 — Anfrage einreichen</span><span class="eyebrow__rule"></span></div>
+          <div class="eyebrow"><span class="mono">05 — Anfrage einreichen</span><span class="eyebrow__rule"></span></div>
           <h2 class="section__title">LV einreichen.<br><b>Antwort am selben Werktag.</b></h2>
         </div>
         <p class="section__lead">Schicken Sie uns Ihr Leistungsverzeichnis oder schildern Sie das Vorhaben in zwei Sätzen. Festpreis-Angebot in 5 Werktagen, indikatives Band bei dringenden Projekten binnen 48 Stunden.</p>

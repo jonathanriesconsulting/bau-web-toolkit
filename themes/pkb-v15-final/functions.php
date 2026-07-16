@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.5.0' );
+define( 'PKB_THEME_VERSION', '1.5.1' );
 
 /**
  * Theme setup.
@@ -62,11 +62,54 @@ add_action( 'wp_enqueue_scripts', static function () {
  * Preconnect to font hosts + meta description.
  */
 add_action( 'wp_head', static function () {
+	$url   = home_url( '/' );
+	$theme = get_template_directory_uri();
+	$img   = $theme . '/assets/images/hero-mehrfamilienhaus-berlin.jpg';
+	$desc  = 'Pascal Kacemer Bauunternehmung GmbH — meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg. Mehrfamilienhäuser, Wohnquartiere, Gewerbebau und Sanierung zum verbindlichen Festpreis.';
+	$title = 'Generalunternehmer Berlin & Brandenburg — Schlüsselfertiger Hochbau | Pascal Kacemer Bauunternehmung GmbH';
+
 	echo "<link rel='preconnect' href='https://api.fontshare.com' crossorigin>\n";
 	echo "<link rel='preconnect' href='https://fonts.googleapis.com'>\n";
 	echo "<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>\n";
-	echo '<meta name="description" content="Pascal Kacemer Bauunternehmung GmbH — meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg. Mehrfamilienhäuser, Wohnquartiere, Gewerbebau.">' . "\n";
+	echo '<link rel="preload" as="image" href="' . esc_url( $img ) . '" fetchpriority="high">' . "\n";
+	echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<link rel="canonical" href="' . esc_url( $url ) . '">' . "\n";
+	echo '<link rel="alternate" hreflang="de-DE" href="' . esc_url( $url ) . '">' . "\n";
+	echo '<link rel="alternate" hreflang="x-default" href="' . esc_url( $url ) . '">' . "\n";
+	echo '<meta property="og:type" content="website">' . "\n";
+	echo '<meta property="og:site_name" content="Pascal Kacemer Bauunternehmung GmbH">' . "\n";
+	echo '<meta property="og:locale" content="de_DE">' . "\n";
+	echo '<meta property="og:title" content="' . esc_attr( $title ) . '">' . "\n";
+	echo '<meta property="og:description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<meta property="og:url" content="' . esc_url( $url ) . '">' . "\n";
+	echo '<meta property="og:image" content="' . esc_url( $img ) . '">' . "\n";
+	echo '<meta property="og:image:width" content="1600">' . "\n";
+	echo '<meta property="og:image:height" content="900">' . "\n";
+	echo '<meta property="og:image:alt" content="Mehrfamilienhaus im Rohbau mit Baukran — Generalunternehmer Berlin und Brandenburg">' . "\n";
+	echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+	echo '<meta name="twitter:title" content="' . esc_attr( $title ) . '">' . "\n";
+	echo '<meta name="twitter:description" content="' . esc_attr( $desc ) . '">' . "\n";
+	echo '<meta name="twitter:image" content="' . esc_url( $img ) . '">' . "\n";
+	echo '<meta name="geo.region" content="DE-BE">' . "\n";
+	echo '<meta name="geo.placename" content="Berlin">' . "\n";
+	echo '<meta name="geo.position" content="52.6330;13.4955">' . "\n";
+	echo '<meta name="ICBM" content="52.6330, 13.4955">' . "\n";
 }, 1 );
+
+/**
+ * SEO-Titel erzwingen + vollständiges robots-Meta.
+ */
+add_filter( 'pre_get_document_title', static function (): string {
+	return 'Generalunternehmer Berlin & Brandenburg — Schlüsselfertiger Hochbau | Pascal Kacemer Bauunternehmung GmbH';
+} );
+add_filter( 'wp_robots', static function ( array $robots ): array {
+	$robots['index']             = true;
+	$robots['follow']            = true;
+	$robots['max-snippet']       = '-1';
+	$robots['max-image-preview'] = 'large';
+	$robots['max-video-preview'] = '-1';
+	return $robots;
+} );
 
 /**
  * Anchor sections of the onepager. Single source of truth.
@@ -134,16 +177,21 @@ function pkb_faqs(): array {
 add_action( 'wp_head', static function () {
 	$base = home_url( '/' );
 
+	$theme = get_template_directory_uri();
 	$org = [
 		'@context'    => 'https://schema.org',
-		'@type'       => 'GeneralContractor',
+		'@type'       => [ 'GeneralContractor', 'LocalBusiness' ],
 		'@id'         => $base . '#organization',
 		'name'        => 'Pascal Kacemer Bauunternehmung GmbH',
-		'description' => 'Meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg — Mehrfamilienhäuser, Wohnquartiere, Gewerbebau.',
+		'alternateName' => 'PKB Bauunternehmung',
+		'description' => 'Meistergeführter Generalunternehmer für schlüsselfertigen Hochbau in Berlin und Brandenburg — Mehrfamilienhäuser, Wohnquartiere, Gewerbebau und Sanierung zum verbindlichen Festpreis.',
+		'slogan'      => 'Schlüsselfertiger Hochbau aus einer Hand.',
 		'url'         => $base,
-		'logo'        => get_template_directory_uri() . '/assets/logo.svg',
+		'logo'        => $theme . '/assets/logo.svg',
+		'image'       => $theme . '/assets/images/hero-mehrfamilienhaus-berlin.jpg',
 		'telephone'   => '+49 30 000 000 00', /* TODO: KUNDE PRÜFEN — echte Nummer */
 		'email'       => 'info@kacemer-bau.de', /* TODO: KUNDE PRÜFEN */
+		'priceRange'  => '€€€',
 		'address'     => [
 			'@type'           => 'PostalAddress',
 			'streetAddress'   => 'Alt-Buch 57',
@@ -152,11 +200,26 @@ add_action( 'wp_head', static function () {
 			'addressRegion'   => 'Berlin',
 			'addressCountry'  => 'DE',
 		],
+		'geo'         => [ '@type' => 'GeoCoordinates', 'latitude' => 52.6330, 'longitude' => 13.4955 ],
 		'areaServed'  => [
 			[ '@type' => 'City', 'name' => 'Berlin' ],
-			[ '@type' => 'State', 'name' => 'Brandenburg' ],
+			[ '@type' => 'City', 'name' => 'Potsdam' ],
+			[ '@type' => 'City', 'name' => 'Bernau bei Berlin' ],
+			[ '@type' => 'AdministrativeArea', 'name' => 'Brandenburg' ],
 		],
-		'knowsAbout'  => [ 'Hochbau', 'Generalunternehmer', 'Mehrfamilienhaus', 'Wohnungsbau', 'Gewerbebau', 'Schlüsselfertigbau', 'Sanierung' ],
+		'serviceArea' => [
+			'@type'       => 'GeoCircle',
+			'geoMidpoint' => [ '@type' => 'GeoCoordinates', 'latitude' => 52.5200, 'longitude' => 13.4050 ],
+			'geoRadius'   => '120000',
+		],
+		'openingHoursSpecification' => [
+			'@type'     => 'OpeningHoursSpecification',
+			'dayOfWeek' => [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' ],
+			'opens'     => '08:00',
+			'closes'    => '18:00',
+		],
+		'founder'     => [ '@type' => 'Person', 'name' => 'Pascal Kacemer', 'jobTitle' => 'Eingetragener Meister im Bauhandwerk' ],
+		'knowsAbout'  => [ 'Hochbau', 'Generalunternehmer', 'Schlüsselfertigbau', 'Mehrfamilienhaus', 'Wohnungsbau', 'Wohnquartier', 'Gewerbebau', 'Massivbau', 'Sanierung', 'KfW-Effizienzhaus', 'Bauleitung' ],
 		'identifier'  => 'HRB 286721 B',
 	];
 	echo "\n<script type='application/ld+json'>" . wp_json_encode( $org, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";

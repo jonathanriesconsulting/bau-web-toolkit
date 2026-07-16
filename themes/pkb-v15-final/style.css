@@ -69,7 +69,7 @@ Text Domain: pkb
    ============================================================= */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: 80px; overflow-x: clip; }
 html:focus-within { scroll-behavior: smooth; }
 body {
   min-height: 100dvh;
@@ -304,7 +304,7 @@ p  { text-wrap: pretty; }
   content: "";
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.75) 100%);
+    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 28%, rgba(0,0,0,0.48) 58%, rgba(0,0,0,0.90) 100%);
   pointer-events: none;
 }
 .hero__inner {
@@ -321,7 +321,7 @@ p  { text-wrap: pretty; }
   justify-content: space-between;
   gap: 1rem;
 }
-.hero__top .mono { color: var(--c-on-dark-2); }
+.hero__top .mono { color: rgba(255,255,255,0.88); text-shadow: 0 1px 12px rgba(0,0,0,0.55); }
 .hero__bottom {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
@@ -339,6 +339,7 @@ p  { text-wrap: pretty; }
   max-width: 14ch;
   color: var(--c-white);
   text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.35);
 }
 .hero__title span { display: inline-block; }
 .hero__meta {
@@ -347,10 +348,11 @@ p  { text-wrap: pretty; }
   gap: 1.25rem;
 }
 .hero__lead {
-  color: var(--c-on-dark-2);
+  color: rgba(255,255,255,0.95);
   font-size: var(--fs-lead);
   max-width: 48ch;
   line-height: 1.45;
+  text-shadow: 0 1px 16px rgba(0,0,0,0.6), 0 1px 2px rgba(0,0,0,0.45);
 }
 .hero__actions {
   display: flex;
@@ -819,9 +821,10 @@ p  { text-wrap: pretty; }
 .service__media {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4/3;
   background: #f5f5f5;
   isolation: isolate;
+  min-width: 0; /* Grid-Item darf schrumpfen — verhindert horizontalen Überlauf */
+  /* KEIN aspect-ratio im 2-Spalten-Desktop (stretch bestimmt Höhe); nur mobil (unten). */
 }
 .service__media img {
   width: 100%; height: 100%;
@@ -872,7 +875,9 @@ p  { text-wrap: pretty; }
   padding: clamp(1.75rem, 1rem + 2vw, 3rem);
   background: var(--c-white);
   border-left: 1px solid var(--c-line);
+  min-width: 0;
 }
+.service h3, .service__lead, .service__points li { overflow-wrap: break-word; }
 .service__head {
   display: flex;
   align-items: center;
@@ -918,6 +923,7 @@ p  { text-wrap: pretty; }
 }
 @media (max-width: 800px) {
   .service { grid-template-columns: 1fr; }
+  .service__media { aspect-ratio: 4/3; } /* gestapelt: Bild braucht definierte Höhe */
   .service:nth-child(even) .service__media { order: 0; }
   .service:nth-child(even) .service__content { order: 0; border-left: 0; }
   .service__content { border-right: 0; padding: 1.5rem; }
@@ -1381,6 +1387,18 @@ p  { text-wrap: pretty; }
   .mobilebar__call { color: var(--c-black); border-right: 1px solid var(--c-line); }
   .mobilebar__cta { background: var(--c-black); color: var(--c-white); }
   body { padding-bottom: 56px; }
+}
+
+/* Kicker/Marker/Zähler ausgeblendet ("Fußnoten" raus, User-Wunsch).
+   NUR dekorative Mono-Labels — echte Inhalts-Labels (Telefon/E-Mail/Sitz,
+   Erfahrung/Qualifikation/Region) bleiben sichtbar. */
+.section-marker,
+.slides__hud,
+.slides__caption .mono,
+.cta-bridge__eyebrow,
+.service__head,
+.faq-item__num {
+  display: none !important;
 }
 
 @media print {

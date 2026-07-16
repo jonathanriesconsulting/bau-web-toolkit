@@ -199,3 +199,18 @@ ul{margin:0;padding:0;list-style:none}
 
 /* Globaler Schutz gegen horizontalen Überlauf (sticky-sicher, anders als hidden) */
 html { overflow-x: clip; }
+
+/* ---- CTA-Strip (nach Leistungen) ---- */
+.cta-strip{border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);background:var(--c-surface)}
+.cta-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:2.5rem 0;flex-wrap:wrap}
+.cta-strip__text{font-size:1.25rem;font-weight:300;color:var(--c-text-2)}
+.cta-strip__text b{color:var(--c-text);font-weight:600}
+
+/* ---- FAQ (6 Top-Fragen, sharp corners — Dark-Version) ---- */
+.faq__list{display:flex;flex-direction:column;border-top:1px solid var(--c-line-soft)}
+.faq__item{border-bottom:1px solid var(--c-line-soft)}
+.faq__summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;cursor:pointer;list-style:none;font-weight:500;color:var(--c-text)}
+.faq__summary::-webkit-details-marker{display:none}
+.faq__icon{color:var(--c-gold);font-weight:300;font-size:1.4rem;line-height:1;transition:transform .3s ease}
+details[open] .faq__icon{transform:rotate(45deg)}
+.faq__body{padding:0 0 1.5rem;color:var(--c-text-2);font-weight:300;line-height:1.75;max-width:70ch}
