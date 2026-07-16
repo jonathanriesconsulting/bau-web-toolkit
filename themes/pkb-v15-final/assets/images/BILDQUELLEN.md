@@ -7,7 +7,8 @@ Alle Fotos: **Pexels-Lizenz** (kostenlos, kommerziell nutzbar, keine Namensnennu
 | hero-quartier-berlin.jpg | KI-generiert (User, ChatGPT, 2026-07-16) | Hero — Regel-Ausnahme durch Jonathan; keine Lizenz nötig |
 | rohbau-kran-daemmerung.jpg | 17907062 | Reserve (jetzt EDI-v7-Hero) |
 | mfh-rohbau-stahlbeton.jpg | 2093640 | Leistung 01 Mehrfamilien- & Wohnungsbau |
-| gewerbebau-betonskelett-kran.jpg | 15080257 | Leistung 02 Gewerbe- & Hochbau |
+| gewerbehalle-verladetore.jpg | KI-generiert (User, ChatGPT, 2026-07-16) | Leistung 02 Gewerbe- & Hochbau — Hinweis: Fassaden-Schriftzug KI-verstümmelt |
+| gewerbebau-betonskelett-kran.jpg | 15080257 | Reserve |
 | schluesseluebergabe-haus.jpg | 30332492 | Leistung 03 Schlüsselfertigbau + Ablauf-Schritt 04 |
 | kernsanierung-altbau-tragwerk.jpg | 16158928 | Leistung 04 Sanierung & Bestand |
 

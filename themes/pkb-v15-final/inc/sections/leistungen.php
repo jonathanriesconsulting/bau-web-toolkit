@@ -59,8 +59,8 @@ $services = [
 	[
 		'num'    => '02',
 		'title'  => 'Gewerbe- & Hochbau',
-		'image'  => $theme_uri . '/assets/images/gewerbebau-betonskelett-kran.jpg',
-		'alt'    => 'Betonskelett eines Gewerbebaus mit Turmdrehkran, Schwarzweiß.',
+		'image'  => $theme_uri . '/assets/images/gewerbehalle-verladetore.jpg',
+		'alt'    => 'Fertiggestellte Gewerbehalle mit Verladetoren und Büroteil im Gewerbegebiet.',
 		'lead'   => 'Gewerbe- und Funktionsbauten als Generalunternehmer — von der Gründung bis zur Schlüsselübergabe, mit verbindlichem Termin- und Kostenrahmen nach Leistungsverzeichnis.',
 		'points' => [
 			'Büro-, Hallen- und Mischnutzungsbauten in Stahlbeton-, Mauerwerks- oder Stahlbeton-Stahl-Hybridkonstruktion, je nach Stützraster und Spannweite',
