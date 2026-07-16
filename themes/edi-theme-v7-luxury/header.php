@@ -39,7 +39,6 @@
   "alternateName": "EDI",
   "slogan": "Rohbau, der auf Termin steht.",
   "description": "Rohbau- und Massivbau-Subunternehmer für Generalunternehmer in Berlin und Brandenburg. PQ-VOB präqualifiziert, VOB/B-konform, eigene Kolonnen.",
-  "telephone": "+49-30-XXXXXXX",
   "email": "kontakt@edi-hochbau.de",
   "url": "https://edi-hochbau.de/",
   "image": "<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-rohbau-daemmerung.jpg",

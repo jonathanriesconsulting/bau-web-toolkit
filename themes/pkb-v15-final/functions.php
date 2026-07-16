@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PKB_THEME_VERSION', '1.5.7' );
+define( 'PKB_THEME_VERSION', '1.5.8' );
 
 /**
  * Theme setup.
@@ -189,8 +189,6 @@ add_action( 'wp_head', static function () {
 		'url'         => $base,
 		'logo'        => $theme . '/assets/logo.svg',
 		'image'       => $theme . '/assets/images/hero-quartier-berlin.jpg',
-		'telephone'   => '+49 30 000 000 00', /* TODO: KUNDE PRÜFEN — echte Nummer */
-		'email'       => 'info@kacemer-bau.de', /* TODO: KUNDE PRÜFEN */
 		'priceRange'  => '€€€',
 		'address'     => [
 			'@type'           => 'PostalAddress',

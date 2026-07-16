@@ -212,9 +212,6 @@ $total_services = count( $services );
 			</p>
 			<div class="cta-bridge__actions" data-pkb-parallax="20">
 				<a class="btn btn--invert" href="#kontakt">Bauanfrage stellen</a>
-				<a class="mono cta-bridge__phone" href="tel:+4930000000">
-					<span aria-hidden="true">↗</span> +49 30 000 000 00
-				</a>
 			</div>
 		</div>
 	</aside>

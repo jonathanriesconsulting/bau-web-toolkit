@@ -19,7 +19,7 @@
       </div>
       <div class="footer__col">
         <h4>Compliance</h4>
-        <ul><li>PQ-VOB Nr. 12345</li><li>VOB/B Vertragsbasis</li><li>BG BAU Unbedenklichkeit</li><li>SOKA-BAU aktiv</li><li>§ 48b EStG Freistellung</li><li>10 Mio € Haftpflicht</li></ul>
+        <ul><li>PQ-VOB präqualifiziert</li><li>VOB/B Vertragsbasis</li><li>BG BAU Unbedenklichkeit</li><li>SOKA-BAU aktiv</li><li>§ 48b EStG Freistellung</li><li>10 Mio € Haftpflicht</li></ul>
       </div>
     </div>
     <div class="footer__bottom"><span>© 2026 EDI Hochbau GmbH</span><span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span></div>

@@ -16,7 +16,7 @@ $theme_uri = get_template_directory_uri();
 		<div class="about about--light">
 			<aside class="about__portrait reveal" aria-hidden="true">
 				<div class="about__portrait-frame">
-					<span class="about__portrait-fallback">Porträt&nbsp;folgt</span>
+					<span class="about__portrait-fallback">PKB</span>
 				</div>
 				<div class="about__portrait-cap">
 					<span class="about__portrait-name">Pascal Kacemer</span>

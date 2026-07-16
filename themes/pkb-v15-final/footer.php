@@ -14,9 +14,9 @@
 
 		<div class="site-footer__grid">
 			<div class="site-footer__col">
-				<span class="mono mono--on-dark">Kontakt</span>
-				<a href="tel:+4930000000">+49 30 000 000 00</a><!-- TODO: KUNDE PRÜFEN -->
-				<a href="mailto:info@kacemer-bau.de">info@kacemer-bau.de</a><!-- TODO: KUNDE PRÜFEN -->
+				<span class="mono mono--on-dark">Firma</span>
+				<span>Pascal Kacemer Bauunternehmung GmbH</span>
+				<span>HRB 286721 B · HWK 150096</span>
 			</div>
 			<div class="site-footer__col">
 				<span class="mono mono--on-dark">Sitz</span>
@@ -44,7 +44,7 @@
 
 <!-- Sticky Mobile-CTA-Bar -->
 <nav class="mobilebar" aria-label="Schnellkontakt">
-	<a class="mobilebar__call" href="tel:+4930000000"><span aria-hidden="true">&#9742;</span> Anrufen</a><!-- TODO: KUNDE PRÜFEN -->
+	<a class="mobilebar__call" href="#kontakt">Kontakt</a>
 	<a class="mobilebar__cta" href="#kontakt">Bauanfrage stellen</a>
 </nav>
 

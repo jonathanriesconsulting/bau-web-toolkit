@@ -11,7 +11,7 @@ get_header();
   <section class="hero">
     <div class="hero__bg"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-rohbau-daemmerung.jpg" alt="Rohbau Berlin"></div>
     <div class="container hero__inner">
-      <span class="hero__chip"><span class="hero__chip-dot"></span>PQ-VOB präqualifiziert · Nr. 12345</span>
+      <span class="hero__chip"><span class="hero__chip-dot"></span>PQ-VOB präqualifiziert</span>
       <div class="hero__grid">
         <div class="reveal">
           <h1 class="hero__title">
@@ -241,15 +241,14 @@ get_header();
       <div class="kontakt__grid">
         <div class="reveal">
           <p class="mono">Direkter Draht zur Bauleitung</p>
-          <a href="tel:+493000000000" class="kontakt__phone">+49 30 0000 0000</a>
+          <span class="kontakt__phone">EDI Hochbau GmbH</span>
           <p style="color:var(--c-text-2);max-width:36ch;font-weight:300;line-height:1.75">Bauleitung direkt erreichbar Mo–Fr 7–18 Uhr. Außerhalb der Geschäftszeiten Notruf-Weiterleitung an den wachhabenden Bauleiter.</p>
 
           <div class="kontakt__channels">
             <div class="kontakt__channel"><span class="mono">E-Mail Kalkulation</span><strong>kalkulation@edi-hochbau.de</strong></div>
             <div class="kontakt__channel"><span class="mono">LV-Upload</span><strong>edi-hochbau.de/upload</strong></div>
             <div class="kontakt__channel"><span class="mono">Adresse</span><strong>Berlin · Brandenburg</strong></div>
-            <div class="kontakt__channel"><span class="mono">HRB Berlin</span><strong>HRB 12345 B</strong></div>
-            <div class="kontakt__channel"><span class="mono">PQ-VOB</span><strong>Nr. 12345 · jährlich verlängert</strong></div>
+            <div class="kontakt__channel"><span class="mono">PQ-VOB</span><strong>präqualifiziert · jährlich verlängert</strong></div>
           </div>
         </div>
 

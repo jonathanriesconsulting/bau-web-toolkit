@@ -17,12 +17,12 @@
 		<div class="contact">
 			<div class="contact__info reveal">
 				<div class="contact__row">
-					<span class="mono mono--on-dark">Telefon</span>
-					<div class="contact__value"><a href="tel:+4930000000">+49 30 000 000 00</a></div><!-- TODO: KUNDE PRÜFEN -->
+					<span class="mono mono--on-dark">Firma</span>
+					<div class="contact__value" style="font-size:1.125rem;line-height:1.4;font-weight:400;">Pascal Kacemer<br>Bauunternehmung GmbH</div>
 				</div>
 				<div class="contact__row">
-					<span class="mono mono--on-dark">E-Mail</span>
-					<div class="contact__value"><a href="mailto:info@kacemer-bau.de">info@kacemer-bau.de</a></div><!-- TODO: KUNDE PRÜFEN -->
+					<span class="mono mono--on-dark">Register</span>
+					<div class="contact__value" style="font-size:1.125rem;line-height:1.4;font-weight:400;">HRB 286721 B<br>HWK 150096</div>
 				</div>
 				<div class="contact__row">
 					<span class="mono mono--on-dark">Sitz</span>
