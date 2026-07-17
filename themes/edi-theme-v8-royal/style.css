@@ -11,15 +11,15 @@ Requires PHP: 8.0
   --c-canvas:#0a0a0e;
   --c-surface:#0f0f15;
   --c-surface-2:#15151c;
-  --c-line:rgba(212,175,55,0.12);
-  --c-line-2:rgba(212,175,55,0.24);
+  --c-line:rgba(176,141,69,0.12);
+  --c-line-2:rgba(176,141,69,0.24);
   --c-line-soft:rgba(255,255,255,0.06);
   --c-text:#f5f3ee;
   --c-text-2:rgba(245,243,238,0.7);
   --c-text-3:rgba(245,243,238,0.45);
   --c-text-4:rgba(245,243,238,0.26);
-  --c-gold:#d4af37;
-  --c-gold-2:#b8912e;
+  --c-gold:#b08d45;
+  --c-gold-2:#93743a;
 
   --ff-display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --ff-body:'Manrope',ui-sans-serif,system-ui,sans-serif;
@@ -70,7 +70,7 @@ ul{margin:0;padding:0;list-style:none}
 .btn__arrow{display:inline-block;transition:transform var(--dur) var(--ease)}
 .btn:hover .btn__arrow{transform:translateX(6px)}
 .btn--primary{background:var(--c-gold);color:var(--c-canvas)}
-.btn--primary:hover{background:var(--c-gold-2);transform:translateY(-2px);box-shadow:0 22px 50px -16px rgba(212,175,55,0.4)}
+.btn--primary:hover{background:var(--c-gold-2);transform:translateY(-2px);box-shadow:0 22px 50px -16px rgba(176,141,69,0.4)}
 .btn--ghost{background:transparent;color:var(--c-gold);border-color:var(--c-gold)}
 .btn--ghost:hover{background:var(--c-gold);color:var(--c-canvas)}
 
@@ -126,7 +126,7 @@ ul{margin:0;padding:0;list-style:none}
 @media (min-width:960px){.leistungen__list{grid-template-columns:repeat(12,1fr);gap:clamp(1.5rem,2.5vw,2rem)}}
 
 .leistung{padding:clamp(2rem,2.5vw,2.5rem) clamp(2rem,3vw,3rem);background:rgba(245,243,238,0.025);border:1px solid var(--c-line-soft);display:flex;flex-direction:column;gap:1.5rem;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);position:relative}
-.leistung:hover{background:rgba(212,175,55,0.04);border-color:var(--c-line)}
+.leistung:hover{background:rgba(176,141,69,0.04);border-color:var(--c-line)}
 @media (min-width:960px){
   .leistung--lg{grid-column:span 7}
   .leistung--md{grid-column:span 5}
@@ -145,7 +145,7 @@ ul{margin:0;padding:0;list-style:none}
 @media (min-width:1100px){.referenzen__grid{grid-template-columns:repeat(3,1fr)}}
 
 .referenz{padding:clamp(2rem,2.5vw,2.5rem);background:rgba(245,243,238,0.02);border:1px solid var(--c-line-soft);display:flex;flex-direction:column;gap:1.5rem;min-height:320px;justify-content:space-between;position:relative;transition:all var(--dur) var(--ease)}
-.referenz:hover{background:rgba(212,175,55,0.04);border-color:var(--c-line);transform:translateY(-3px)}
+.referenz:hover{background:rgba(176,141,69,0.04);border-color:var(--c-line);transform:translateY(-3px)}
 .referenz__num{position:absolute;top:1.5rem;right:1.75rem;font-family:var(--ff-display);font-weight:300;font-size:3.5rem;color:var(--c-line);line-height:1;letter-spacing:-0.03em}
 .referenz__type{font-family:var(--ff-mono);font-size:.66rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold)}
 .referenz__title{font-family:var(--ff-display);font-weight:400;font-size:1.35rem;letter-spacing:-0.005em;line-height:1.25;color:var(--c-text);max-width:24ch}
@@ -186,7 +186,7 @@ ul{margin:0;padding:0;list-style:none}
 .kontakt__row{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
 @media (max-width:600px){.kontakt__row{grid-template-columns:1fr}}
 .kontakt__submit{background:var(--c-gold);color:var(--c-canvas);border:0;padding:1.2rem 1.85rem;font-family:var(--ff-display);font-weight:400;font-size:.95rem;letter-spacing:.03em;display:inline-flex;align-items:center;gap:.65rem;justify-content:center;cursor:pointer;transition:all var(--dur) var(--ease);margin-top:1rem}
-.kontakt__submit:hover{background:var(--c-gold-2);transform:translateY(-2px);box-shadow:0 22px 50px -18px rgba(212,175,55,0.4)}
+.kontakt__submit:hover{background:var(--c-gold-2);transform:translateY(-2px);box-shadow:0 22px 50px -18px rgba(176,141,69,0.4)}
 
 /* Footer */
 .footer{background:var(--c-canvas);color:var(--c-text-3);padding-block:clamp(4rem,5vw,5rem);border-top:1px solid var(--c-line-soft)}
@@ -232,11 +232,11 @@ details[open] .faq__icon{transform:rotate(45deg)}
    Labels (Kontrast auf hell), sharp corners bleiben. ---- */
 .leistung, .referenz { background: #f5f3ee; border-color: rgba(10,10,14,0.10); }
 .leistung:hover, .referenz:hover { background: #ffffff; border-color: rgba(143,113,64,0.45); }
-.leistung__num, .referenz__type { color: #8a6a1a; }
+.leistung__num, .referenz__type { color: #7d6230; }
 .leistung__title, .referenz__title { color: #141118; }
 .leistung__lead, .leistung__bullets li { color: rgba(20,17,24,0.74); }
 .leistung__bullets { border-top-color: rgba(10,10,14,0.14); }
-.leistung__bullets li::before { background: #8a6a1a; }
+.leistung__bullets li::before { background: #7d6230; }
 .referenz__num { color: rgba(10,10,14,0.10); }
 .referenz__meta { border-top-color: rgba(10,10,14,0.14); }
 .referenz__meta span { color: rgba(20,17,24,0.50); }
@@ -244,10 +244,10 @@ details[open] .faq__icon{transform:rotate(45deg)}
 
 /* ---- Kontakt-Formular hell (User-Wunsch): weiße Karte, dunkle Typo ---- */
 .kontakt__form{background:#f5f3ee;border-color:rgba(10,10,14,0.10)}
-.kontakt__field label{color:#8a6a1a}
+.kontakt__field label{color:#7d6230}
 .kontakt__field input,.kontakt__field textarea,.kontakt__field select{background:#ffffff;border:1px solid rgba(10,10,14,0.16);border-radius:0;padding:.85rem 1rem;color:#141118;-webkit-appearance:none;appearance:none}
 .kontakt__field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23141118' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
-.kontakt__field input:focus,.kontakt__field textarea:focus,.kontakt__field select:focus{outline:0;border-color:#8a6a1a;border-bottom-color:#8a6a1a}
+.kontakt__field input:focus,.kontakt__field textarea:focus,.kontakt__field select:focus{outline:0;border-color:#7d6230;border-bottom-color:#7d6230}
 .kontakt__submit{background:#141118;color:#f5f3ee}
 .kontakt__submit:hover{background:#000;box-shadow:0 22px 50px -18px rgba(10,10,14,0.5)}
 
@@ -287,10 +287,10 @@ details[open] .faq__icon{transform:rotate(45deg)}
 .eyebrow::after{content:"◆";color:var(--c-gold);font-size:.55rem;margin-left:.6rem;opacity:.9}
 
 /* Goldene Doppelrahmen (innere Hairline) auf hellen Karten + Formular */
-.leistung,.referenz,.kontakt__form{outline:1px solid rgba(212,175,55,0.38);outline-offset:-8px}
+.leistung,.referenz,.kontakt__form{outline:1px solid rgba(176,141,69,0.38);outline-offset:-8px}
 
 /* Hero-Chip: doppelte Randlinie */
-.hero__chip{box-shadow:inset 0 0 0 3px var(--c-canvas),inset 0 0 0 4px rgba(212,175,55,0.55)}
+.hero__chip{box-shadow:inset 0 0 0 3px var(--c-canvas),inset 0 0 0 4px rgba(176,141,69,0.55)}
 
 /* Großes Zier-Anführungszeichen hinter dem Zitat */
 .quote-section{position:relative}
