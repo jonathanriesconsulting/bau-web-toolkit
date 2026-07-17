@@ -1,0 +1,270 @@
+/*
+Theme Name: EDI v8 — Royal Gold Serif
+Description: Refined Dark, prominentes Gold, leichte Weights, asymmetric Hero, Zitat-Sektion.
+Version: 1.0.0
+Author: Pascal Kacemer Bauunternehmung — Showcase Build
+Text Domain: edi-theme-v8-royal
+Requires PHP: 8.0
+*/
+
+:root{
+  --c-canvas:#0a0a0e;
+  --c-surface:#0f0f15;
+  --c-surface-2:#15151c;
+  --c-line:rgba(212,175,55,0.12);
+  --c-line-2:rgba(212,175,55,0.24);
+  --c-line-soft:rgba(255,255,255,0.06);
+  --c-text:#f5f3ee;
+  --c-text-2:rgba(245,243,238,0.7);
+  --c-text-3:rgba(245,243,238,0.45);
+  --c-text-4:rgba(245,243,238,0.26);
+  --c-gold:#d4af37;
+  --c-gold-2:#b8912e;
+
+  --ff-display:'Playfair Display',Georgia,'Times New Roman',serif;
+  --ff-body:'Manrope',ui-sans-serif,system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',ui-monospace,monospace;
+
+  --container:1280px;
+  --gutter:clamp(1.5rem,3vw,2.5rem);
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  --dur:400ms;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--ff-body);font-weight:300;font-size:clamp(1rem,0.95rem + 0.15vw,1.05rem);line-height:1.75;color:var(--c-text);background:var(--c-canvas);-webkit-font-smoothing:antialiased}
+em,i,cite,dfn,blockquote,q{font-style:normal!important}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;background:none;border:0;color:inherit}
+h1,h2,h3,h4,p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+::selection{background:var(--c-gold);color:var(--c-canvas)}
+
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+.container--narrow{max-width:960px}
+.mono{font-family:var(--ff-mono);font-size:.7rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold)}
+.eyebrow{display:flex;align-items:center;gap:1.5rem;margin-bottom:clamp(2rem,4vw,3rem)}
+.eyebrow__rule{flex:1;height:1px;background:var(--c-line)}
+
+/* Header */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,14,0.72);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid transparent;transition:border-color var(--dur) var(--ease)}
+.site-header.is-scrolled{border-bottom-color:var(--c-line)}
+.site-header__inner{display:flex;align-items:center;justify-content:space-between;padding-block:1.25rem;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+.brand{display:flex;align-items:center;gap:1rem}
+.brand__mark{width:36px;height:36px;border:1px solid var(--c-gold);display:flex;align-items:center;justify-content:center;color:var(--c-gold);font-family:var(--ff-display);font-weight:500;font-size:1.05rem;letter-spacing:.04em}
+.brand__text{display:flex;flex-direction:column;line-height:1.05}
+.brand__name{font-family:var(--ff-display);font-size:.92rem;font-weight:400;letter-spacing:.03em;color:var(--c-text)}
+.brand__tagline{font-family:var(--ff-mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold);margin-top:.25rem;font-weight:300}
+
+.nav{display:flex;align-items:center;gap:2.5rem}
+.nav__list{display:flex;gap:2.25rem}
+.nav__link{font-family:var(--ff-body);font-size:.88rem;font-weight:400;letter-spacing:.02em;color:var(--c-text-2);transition:color var(--dur) var(--ease);position:relative}
+.nav__link:hover{color:var(--c-gold)}
+.nav__cta{display:inline-flex;align-items:center;gap:.55rem;border:1px solid var(--c-gold);color:var(--c-gold);padding:.65rem 1.15rem;font-family:var(--ff-body);font-size:.85rem;font-weight:400;letter-spacing:.02em;transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.nav__cta:hover{background:var(--c-gold);color:var(--c-canvas)}
+@media (max-width:880px){.nav__list,.nav__cta{display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:.65rem;padding:1.1rem 1.85rem;font-family:var(--ff-display);font-weight:400;font-size:.92rem;letter-spacing:.03em;transition:all var(--dur) var(--ease);border:1px solid transparent}
+.btn__arrow{display:inline-block;transition:transform var(--dur) var(--ease)}
+.btn:hover .btn__arrow{transform:translateX(6px)}
+.btn--primary{background:var(--c-gold);color:var(--c-canvas)}
+.btn--primary:hover{background:var(--c-gold-2);transform:translateY(-2px);box-shadow:0 22px 50px -16px rgba(212,175,55,0.4)}
+.btn--ghost{background:transparent;color:var(--c-gold);border-color:var(--c-gold)}
+.btn--ghost:hover{background:var(--c-gold);color:var(--c-canvas)}
+
+/* Hero — Asymmetric & spacious */
+.hero{position:relative;padding-top:8rem;padding-bottom:clamp(4rem,6vw,6rem);overflow:hidden;min-height:min(72vh,44rem);display:flex;align-items:center}
+.hero__bg{position:absolute;inset:0;z-index:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;filter:brightness(0.45) saturate(0.6) contrast(1.05);object-position:center 40%}
+.hero__bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,transparent 0%,rgba(10,10,14,0.6) 60%,rgba(10,10,14,0.92) 100%),linear-gradient(180deg,rgba(10,10,14,0.4) 0%,transparent 30%,transparent 60%,rgba(10,10,14,0.95) 100%)}
+.hero__inner{position:relative;z-index:2;width:100%}
+.hero__grid{display:grid;grid-template-columns:1fr;gap:clamp(2rem,4vw,3rem)}
+@media (min-width:960px){.hero__grid{grid-template-columns:1fr;align-items:end}}
+
+.hero__chip{display:inline-flex;align-items:center;gap:.55rem;padding:.5rem 1rem;border:1px solid var(--c-gold);font-family:var(--ff-mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-gold);font-weight:300;margin-bottom:clamp(2rem,4vw,3rem)}
+.hero__chip-dot{width:6px;height:6px;background:var(--c-gold);border-radius:50%;box-shadow:0 0 12px var(--c-gold)}
+
+.hero__title{font-family:var(--ff-display);font-weight:300;font-size:clamp(3rem,7.5vw,6.5rem);letter-spacing:-0.025em;line-height:1.0;color:var(--c-text)}
+.hero__title span{display:block}
+.hero__title-2{color:var(--c-gold);font-weight:400;font-style:normal}
+
+.hero__sub{margin-top:clamp(2rem,3vw,2.5rem);font-size:clamp(1.05rem,1.2vw,1.18rem);line-height:1.75;color:var(--c-text-2);font-weight:300;max-width:42ch}
+
+.hero__side{display:flex;flex-direction:column;gap:1.1rem;padding-left:clamp(0,2vw,2rem);justify-content:center}
+@media (max-width:960px){.hero__side{padding-left:0;border-left:0;border-top:1px solid var(--c-line);padding-top:2rem;margin-top:1rem}}
+@media (min-width:960px){.hero__side{border-left:1px solid var(--c-line);padding-left:3rem}}
+.hero__meta-block{display:flex;flex-direction:column;gap:.35rem;padding-bottom:1.1rem;border-bottom:1px solid var(--c-line-soft)}
+.hero__meta-block:last-child{border-bottom:0;padding-bottom:0}
+.hero__meta-block .mono{color:var(--c-text-3);font-size:.66rem;letter-spacing:.18em}
+.hero__meta-block strong{font-family:var(--ff-display);font-weight:400;font-size:clamp(1.25rem,1.4vw,1.5rem);letter-spacing:-0.005em;color:var(--c-text)}
+.hero__meta-block--gold strong{color:var(--c-gold)}
+
+.hero__ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:clamp(2rem,3vw,2.5rem)}
+
+/* Sections */
+.section{padding-block:clamp(7rem,12vw,11rem);position:relative}
+.section--surface{background:var(--c-surface)}
+.section__title{font-family:var(--ff-display);font-weight:300;font-size:clamp(2.4rem,5.5vw,4.5rem);letter-spacing:-0.025em;line-height:1.05;color:var(--c-text)}
+.section__title b{color:var(--c-gold);font-weight:400}
+.section__lead{font-size:clamp(1.05rem,1.18vw,1.18rem);line-height:1.75;color:var(--c-text-2);max-width:50ch;font-weight:300}
+.section__head{display:grid;gap:2rem;margin-bottom:clamp(4rem,6vw,6rem)}
+@media (min-width:900px){.section__head{grid-template-columns:7fr 5fr;gap:clamp(3rem,6vw,6rem);align-items:end}}
+
+/* Intro / Statement */
+.intro__grid{display:grid;gap:clamp(2rem,4vw,3rem);align-items:start}
+@media (min-width:960px){.intro__grid{grid-template-columns:1fr 1fr;gap:clamp(4rem,8vw,7rem)}}
+.intro__statement{font-family:var(--ff-display);font-weight:300;font-size:clamp(2.4rem,5.2vw,4rem);letter-spacing:-0.025em;line-height:1.08;color:var(--c-text)}
+.intro__statement em{color:var(--c-gold);font-style:normal;font-weight:400}
+.intro__body{font-size:clamp(1.05rem,1.2vw,1.18rem);line-height:1.8;color:var(--c-text-2);font-weight:300;max-width:50ch}
+.intro__body p+p{margin-top:1.5rem}
+.intro__body b{color:var(--c-gold);font-weight:400}
+
+/* Leistungen — Editorial asymmetric */
+.leistungen__list{display:grid;gap:clamp(2rem,3vw,2.5rem)}
+@media (min-width:960px){.leistungen__list{grid-template-columns:repeat(12,1fr);gap:clamp(1.5rem,2.5vw,2rem)}}
+
+.leistung{padding:clamp(2rem,2.5vw,2.5rem) clamp(2rem,3vw,3rem);background:rgba(245,243,238,0.025);border:1px solid var(--c-line-soft);display:flex;flex-direction:column;gap:1.5rem;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);position:relative}
+.leistung:hover{background:rgba(212,175,55,0.04);border-color:var(--c-line)}
+@media (min-width:960px){
+  .leistung--lg{grid-column:span 7}
+  .leistung--md{grid-column:span 5}
+  .leistung--sm{grid-column:span 4}
+}
+.leistung__num{font-family:var(--ff-mono);font-size:.68rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:var(--c-gold)}
+.leistung__title{font-family:var(--ff-display);font-weight:300;font-size:clamp(1.5rem,2vw,1.95rem);letter-spacing:-0.015em;line-height:1.12;color:var(--c-text)}
+.leistung__lead{color:var(--c-text-2);line-height:1.75;font-size:.98rem;font-weight:300}
+.leistung__bullets{display:flex;flex-direction:column;gap:.65rem;padding-top:1rem;border-top:1px solid var(--c-line-soft);margin-top:.5rem}
+.leistung__bullets li{font-family:var(--ff-body);font-size:.92rem;font-weight:300;color:var(--c-text-2);padding-left:1.5rem;position:relative;line-height:1.55}
+.leistung__bullets li::before{content:"";position:absolute;left:0;top:.65em;width:14px;height:1px;background:var(--c-gold)}
+
+/* Referenzen */
+.referenzen__grid{display:grid;gap:clamp(1.5rem,2.5vw,2rem)}
+@media (min-width:760px){.referenzen__grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.referenzen__grid{grid-template-columns:repeat(3,1fr)}}
+
+.referenz{padding:clamp(2rem,2.5vw,2.5rem);background:rgba(245,243,238,0.02);border:1px solid var(--c-line-soft);display:flex;flex-direction:column;gap:1.5rem;min-height:320px;justify-content:space-between;position:relative;transition:all var(--dur) var(--ease)}
+.referenz:hover{background:rgba(212,175,55,0.04);border-color:var(--c-line);transform:translateY(-3px)}
+.referenz__num{position:absolute;top:1.5rem;right:1.75rem;font-family:var(--ff-display);font-weight:300;font-size:3.5rem;color:var(--c-line);line-height:1;letter-spacing:-0.03em}
+.referenz__type{font-family:var(--ff-mono);font-size:.66rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold)}
+.referenz__title{font-family:var(--ff-display);font-weight:400;font-size:1.35rem;letter-spacing:-0.005em;line-height:1.25;color:var(--c-text);max-width:24ch}
+.referenz__meta{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem;padding-top:1.25rem;border-top:1px solid var(--c-line-soft)}
+.referenz__meta span{font-family:var(--ff-mono);font-size:.66rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--c-text-3)}
+.referenz__meta strong{display:block;font-family:var(--ff-display);font-weight:400;font-size:1rem;color:var(--c-text);margin-top:.4rem;letter-spacing:.005em}
+
+/* Quote */
+.quote-section{padding-block:clamp(6rem,10vw,9rem);text-align:center;position:relative;
+  /* Baustellen-Team als Hintergrund (User-Wunsch), cover-beschnitten,
+     dunkel überblendet, damit Zitat + Gold lesbar bleiben */
+  background:
+    linear-gradient(rgba(10,10,14,0.86), rgba(10,10,14,0.86)),
+    url('assets/images/quote-team-baustelle.jpg') center 30%/cover no-repeat;}
+.quote-section__inner{max-width:880px;margin-inline:auto;padding-inline:var(--gutter)}
+.quote-section .mono{margin-bottom:2.5rem;display:inline-block}
+.quote-section__text{font-family:var(--ff-display);font-weight:300;font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.018em;line-height:1.3;color:var(--c-text);max-width:30ch;margin-inline:auto}
+.quote-section__text em{color:var(--c-gold);font-style:normal;font-weight:400}
+.quote-section__cite{margin-top:2rem;font-family:var(--ff-mono);font-size:.72rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--c-text-3)}
+
+/* Kontakt */
+.kontakt__grid{display:grid;gap:clamp(3rem,5vw,5rem)}
+@media (min-width:960px){.kontakt__grid{grid-template-columns:5fr 7fr;align-items:start}}
+.kontakt__phone{font-family:var(--ff-display);font-weight:300;font-size:clamp(2.4rem,5vw,4rem);letter-spacing:-0.025em;line-height:1;color:var(--c-gold);display:block;margin-block:1.5rem;transition:color var(--dur) var(--ease)}
+.kontakt__phone:hover{color:var(--c-text)}
+.kontakt__channels{display:flex;flex-direction:column;gap:0;margin-top:2.5rem;border-top:1px solid var(--c-line-soft)}
+.kontakt__channel{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.5rem 0;border-bottom:1px solid var(--c-line-soft);transition:padding-left var(--dur) var(--ease)}
+.kontakt__channel:hover{padding-left:.75rem}
+.kontakt__channel .mono{color:var(--c-text-3);font-size:.66rem}
+.kontakt__channel strong{font-family:var(--ff-display);font-weight:400;font-size:1rem;color:var(--c-text);letter-spacing:.005em}
+
+.kontakt__form{background:rgba(245,243,238,0.025);border:1px solid var(--c-line-soft);padding:clamp(2rem,3vw,3rem);display:flex;flex-direction:column;gap:1.5rem}
+.kontakt__field{display:flex;flex-direction:column;gap:.65rem}
+.kontakt__field label{font-family:var(--ff-mono);font-size:.66rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold)}
+.kontakt__field input,.kontakt__field textarea,.kontakt__field select{background:transparent;border:0;border-bottom:1px solid var(--c-line-soft);padding:.85rem 0;font:inherit;color:var(--c-text);transition:border-color var(--dur) var(--ease);font-weight:300}
+.kontakt__field input:focus,.kontakt__field textarea:focus,.kontakt__field select:focus{outline:0;border-bottom-color:var(--c-gold)}
+.kontakt__field textarea{resize:vertical;min-height:120px}
+.kontakt__row{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+@media (max-width:600px){.kontakt__row{grid-template-columns:1fr}}
+.kontakt__submit{background:var(--c-gold);color:var(--c-canvas);border:0;padding:1.2rem 1.85rem;font-family:var(--ff-display);font-weight:400;font-size:.95rem;letter-spacing:.03em;display:inline-flex;align-items:center;gap:.65rem;justify-content:center;cursor:pointer;transition:all var(--dur) var(--ease);margin-top:1rem}
+.kontakt__submit:hover{background:var(--c-gold-2);transform:translateY(-2px);box-shadow:0 22px 50px -18px rgba(212,175,55,0.4)}
+
+/* Footer */
+.footer{background:var(--c-canvas);color:var(--c-text-3);padding-block:clamp(4rem,5vw,5rem);border-top:1px solid var(--c-line-soft)}
+.footer__top{display:grid;gap:3rem;padding-bottom:3rem;border-bottom:1px solid var(--c-line-soft)}
+@media (min-width:900px){.footer__top{grid-template-columns:5fr 3fr 4fr}}
+.footer__brand p{margin-top:1.25rem;max-width:38ch;font-size:.92rem;line-height:1.7;font-weight:300}
+.footer__col h4{font-family:var(--ff-mono);font-size:.66rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--c-gold);margin-bottom:1.5rem}
+.footer__col ul{display:flex;flex-direction:column;gap:.75rem;font-size:.92rem;font-weight:300}
+.footer__col a:hover{color:var(--c-gold)}
+.footer__bottom{padding-top:2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-family:var(--ff-mono);font-size:.65rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:var(--c-text-4)}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 800ms var(--ease),transform 800ms var(--ease)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Globaler Schutz gegen horizontalen Überlauf (sticky-sicher, anders als hidden) */
+html { overflow-x: clip; }
+
+/* ---- CTA-Strip (nach Leistungen) ---- */
+.cta-strip{border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);background:var(--c-surface)}
+.cta-strip__inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding:2.5rem 0;flex-wrap:wrap}
+.cta-strip__text{font-size:1.25rem;font-weight:300;color:var(--c-text-2)}
+.cta-strip__text b{color:var(--c-text);font-weight:600}
+
+/* ---- FAQ (6 Top-Fragen, sharp corners — Dark-Version) ---- */
+.faq__list{display:flex;flex-direction:column;border-top:1px solid var(--c-line-soft)}
+.faq__item{border-bottom:1px solid var(--c-line-soft)}
+.faq__summary{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.25rem 0;cursor:pointer;list-style:none;font-weight:500;color:var(--c-text)}
+.faq__summary::-webkit-details-marker{display:none}
+.faq__icon{color:var(--c-gold);font-weight:300;font-size:1.4rem;line-height:1;transition:transform .3s ease}
+details[open] .faq__icon{transform:rotate(45deg)}
+.faq__body{padding:0 0 1.5rem;color:var(--c-text-2);font-weight:300;line-height:1.75;max-width:70ch}
+
+/* Reveal-Fallback: Inhalt darf NIE dauerhaft unsichtbar bleiben.
+   Falls das IntersectionObserver-JS nicht feuert (Cache/Edge-Case),
+   erzwingt diese Animation nach 2s den sichtbaren Endzustand. */
+@keyframes reveal-fallback { to { opacity: 1; transform: none; } }
+.reveal { animation: reveal-fallback 1ms 2s forwards; }
+.reveal.is-visible { animation: none; }
+
+/* ---- Licht-Karten (User-Wunsch "Lichtbrechung"): Leistungs-Bausteine +
+   Referenz-Karten hell auf dunklem Canvas. Dunkle Typo, tiefes Gold für
+   Labels (Kontrast auf hell), sharp corners bleiben. ---- */
+.leistung, .referenz { background: #f5f3ee; border-color: rgba(10,10,14,0.10); }
+.leistung:hover, .referenz:hover { background: #ffffff; border-color: rgba(143,113,64,0.45); }
+.leistung__num, .referenz__type { color: #8a6a1a; }
+.leistung__title, .referenz__title { color: #141118; }
+.leistung__lead, .leistung__bullets li { color: rgba(20,17,24,0.74); }
+.leistung__bullets { border-top-color: rgba(10,10,14,0.14); }
+.leistung__bullets li::before { background: #8a6a1a; }
+.referenz__num { color: rgba(10,10,14,0.10); }
+.referenz__meta { border-top-color: rgba(10,10,14,0.14); }
+.referenz__meta span { color: rgba(20,17,24,0.50); }
+.referenz__meta strong { color: #141118; }
+
+/* ---- Kontakt-Formular hell (User-Wunsch): weiße Karte, dunkle Typo ---- */
+.kontakt__form{background:#f5f3ee;border-color:rgba(10,10,14,0.10)}
+.kontakt__field label{color:#8a6a1a}
+.kontakt__field input,.kontakt__field textarea,.kontakt__field select{background:#ffffff;border:1px solid rgba(10,10,14,0.16);border-radius:0;padding:.85rem 1rem;color:#141118;-webkit-appearance:none;appearance:none}
+.kontakt__field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23141118' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center}
+.kontakt__field input:focus,.kontakt__field textarea:focus,.kontakt__field select:focus{outline:0;border-color:#8a6a1a;border-bottom-color:#8a6a1a}
+.kontakt__submit{background:#141118;color:#f5f3ee}
+.kontakt__submit:hover{background:#000;box-shadow:0 22px 50px -18px rgba(10,10,14,0.5)}
+
+/* ---- Kennzahlen-Band unter dem Hero (User-Wunsch: Bausteine da runter) ---- */
+.statband{background:var(--c-surface);border-top:1px solid var(--c-line-soft);border-bottom:1px solid var(--c-line-soft);padding-block:clamp(2rem,3vw,3rem)}
+.statband__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(1.25rem,2.5vw,2.5rem)}
+@media (max-width:1000px){.statband__grid{grid-template-columns:repeat(2,1fr);gap:1.75rem}}
+.statband__item{display:flex;flex-direction:column;gap:.5rem;border-left:1px solid var(--c-line-soft);padding-left:1.25rem}
+.statband__item .mono{color:var(--c-text-3);font-size:.66rem;letter-spacing:.18em}
+.statband__item strong{font-family:var(--ff-display);font-weight:400;font-size:clamp(1.35rem,1.8vw,1.8rem);color:var(--c-text);letter-spacing:-0.005em}
+.statband__item--gold strong{color:var(--c-gold)}
+
+/* ---- v8 ROYAL: Serif-Feinschliff (Playfair verträgt kein enges Tracking) ---- */
+.hero__title{letter-spacing:-0.005em;font-weight:500}
+.hero__title-2{font-weight:600}
+.intro__statement{letter-spacing:0;font-weight:500}
+.section__title{letter-spacing:0;font-weight:500}
+.leistung__title,.referenz__title{letter-spacing:0}
+.quote-section__text{letter-spacing:0;font-weight:500}
+.statband__item strong,.hero__meta-block strong,.kontakt__phone{letter-spacing:0}
