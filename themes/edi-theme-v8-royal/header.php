@@ -29,7 +29,7 @@
 <meta name="geo.placename" content="Berlin">
 <link rel="preload" as="image" href="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/hero-rohbau-daemmerung.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap">
 
 <script type="application/ld+json">
 {
